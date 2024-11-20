@@ -21,19 +21,21 @@ class _HomepageState extends State<Homepage> {
         title: Text('QUIZ APP'),
       ),
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Text(quizService.getQuestionText()),
+          MyCard(child: Text('QUESTION ${quizService.getQuestionNumber() + 1}', style: kQuestionTextStyle,),),
+          MyCard(child: Text(quizService.getQuestionText(), style: kQuestionTextStyle,),),
           quizService.getChoice1() != null
-              ? MyButton(text: quizService.getChoice1()!)
+              ? MyButton(text: quizService.getChoice1()!, colour: Colors.blue,)
               : Container(),
           quizService.getChoice2() != null
-              ? MyButton(text: quizService.getChoice2()!)
+              ? MyButton(text: quizService.getChoice2()!, colour: Colors.red,)
               : Container(),
           quizService.getChoice3() != null
-              ? MyButton(text: quizService.getChoice3()!)
+              ? MyButton(text: quizService.getChoice3()!, colour: Colors.green,)
               : Container(),
           quizService.getChoice4() != null
-              ? MyButton(text: quizService.getChoice4()!)
+              ? MyButton(text: quizService.getChoice4()!, colour: Colors.yellow)
               : Container(),
         ],
       ),
@@ -42,14 +44,18 @@ class _HomepageState extends State<Homepage> {
 }
 
 class MyButton extends StatelessWidget {
-  const MyButton({super.key, this.onPress, required this.text});
+  const MyButton({super.key, this.onPress, required this.text, this.colour});
 
   final Function? onPress;
   final String text;
+  final Color? colour;
 
   @override
   Widget build(BuildContext context) {
     return TextButton(
+      style: ButtonStyle(
+        backgroundColor: MaterialStateProperty.all(colour),
+      ),
       onPressed: onPress != null ? onPress!() : null,
       child: Text(text),
     );
@@ -64,11 +70,13 @@ class MyCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: kContainerColour,
-      child: Padding(
-        padding: EdgeInsets.all(5.0),
-        child: child,
+      padding: EdgeInsets.all(15.0),
+      margin: EdgeInsets.all(5.0),
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(15.0),
+          color: kContainerColour
       ),
+      child: child,
     );
   }
 }
