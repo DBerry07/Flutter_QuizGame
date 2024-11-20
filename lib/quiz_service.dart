@@ -15,14 +15,27 @@ class QuizService {
 
   List<String> getChoices() {
     List<String> choices = [];
-    List<QuizQuestion> bank = _quizModel.getQuestionBank();
+    QuizQuestion question = _quizModel.getQuestion(_questionNumber);
 
-    choices.add(bank[_questionNumber].choice1);
-    choices.add(bank[_questionNumber].choice2);
-    if (bank[_questionNumber].choice3 != null) choices.add(bank[_questionNumber].choice3!);
-    if (bank[_questionNumber].choice4 != null) choices.add(bank[_questionNumber].choice4!);
+    choices.add(question.choice1);
+    choices.add(question.choice2);
+    if (question.choice3 != null) choices.add(question.choice3!);
+    if (question.choice4 != null) choices.add(question.choice4!);
 
     return choices;
+  }
+
+  String? getChoice1() {
+    return _quizModel.getQuestion(_questionNumber).choice1;
+  }
+  String? getChoice2() {
+    return _quizModel.getQuestion(_questionNumber).choice2;
+  }
+  String? getChoice3() {
+    return _quizModel.getQuestion(_questionNumber).choice3;
+  }
+  String? getChoice4() {
+    return _quizModel.getQuestion(_questionNumber).choice4;
   }
 
   void nextQuestion() {
