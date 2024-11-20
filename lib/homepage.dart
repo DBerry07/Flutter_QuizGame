@@ -15,30 +15,27 @@ class _HomepageState extends State<Homepage> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: SafeArea(
-          child: Scaffold(
-        appBar: AppBar(
-          title: Text('QUIZ APP'),
-        ),
-        body: Column(
-          children: [
-            Text(quizService.getQuestionText()),
-            quizService.getChoice1() != null
-                ? MyButton(text: quizService.getChoice1()!)
-                : Container(),
-            quizService.getChoice2() != null
-                ? MyButton(text: quizService.getChoice2()!)
-                : Container(),
-            quizService.getChoice3() != null
-                ? MyButton(text: quizService.getChoice3()!)
-                : Container(),
-            quizService.getChoice4() != null
-                ? MyButton(text: quizService.getChoice4()!)
-                : Container(),
-          ],
-        ),
-      )),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('QUIZ APP'),
+      ),
+      body: Column(
+        children: [
+          Text(quizService.getQuestionText()),
+          quizService.getChoice1() != null
+              ? MyButton(text: quizService.getChoice1()!)
+              : Container(),
+          quizService.getChoice2() != null
+              ? MyButton(text: quizService.getChoice2()!)
+              : Container(),
+          quizService.getChoice3() != null
+              ? MyButton(text: quizService.getChoice3()!)
+              : Container(),
+          quizService.getChoice4() != null
+              ? MyButton(text: quizService.getChoice4()!)
+              : Container(),
+        ],
+      ),
     );
   }
 }
