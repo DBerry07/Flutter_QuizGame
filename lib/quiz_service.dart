@@ -25,6 +25,10 @@ class QuizService {
     return choices;
   }
 
+  int getQuestionNumber() {
+    return _questionNumber;
+  }
+
   String? getChoice1() {
     return _quizModel.getQuestion(_questionNumber).choice1;
   }
