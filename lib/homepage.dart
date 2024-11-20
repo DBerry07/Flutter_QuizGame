@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_quiz_app/constants.dart';
 import 'package:flutter_quiz_app/quiz_model.dart';
 import 'package:flutter_quiz_app/quiz_service.dart';
 
@@ -51,6 +52,23 @@ class MyButton extends StatelessWidget {
     return TextButton(
       onPressed: onPress != null ? onPress!() : null,
       child: Text(text),
+    );
+  }
+}
+
+class MyCard extends StatelessWidget {
+  const MyCard({super.key, this.child});
+
+  final Widget? child;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: kContainerColour,
+      child: Padding(
+        padding: EdgeInsets.all(5.0),
+        child: child,
+      ),
     );
   }
 }
