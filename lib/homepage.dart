@@ -1,3 +1,5 @@
+import 'package:flash/flash.dart';
+import 'package:flash/flash_helper.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_quiz_app/constants.dart';
@@ -16,11 +18,44 @@ class _HomepageState extends State<Homepage> {
   QuizService quizService = QuizService(quizModel: QuizModel());
   Color backgroundColour = kChoice1Colour;
 
+  void showCorrectToast() {
+    context.showFlash<bool>(
+      duration: Duration(seconds: 2),
+      builder: (context, controller) => FlashBar(
+        backgroundColor: Colors.green,
+        position: FlashPosition.top,
+        controller: controller,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(bottom: Radius.circular(16)),
+          side: BorderSide(),
+        ),
+        clipBehavior: Clip.hardEdge,
+        icon: Icon(Icons.check, color: Colors.white,),
+        content: Text('Correct!', style: kQuestionTextStyle,),
+      ),);
+  }
+
+  void showIncorrectToast() {
+    context.showFlash<bool>(
+      duration: Duration(seconds: 2),
+      builder: (context, controller) => FlashBar(
+        backgroundColor: Colors.red,
+        position: FlashPosition.top,
+        controller: controller,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(bottom: Radius.circular(16)),
+          side: BorderSide(),
+        ),
+        clipBehavior: Clip.hardEdge,
+        icon: Icon(Icons.close, color: Colors.white,),
+        content: Text('Incorrect!', style: kQuestionTextStyle),
+      ),);
+  }
 
   void checkAnswer(QuizChoice playerChoice) {
     print('Checking player answer of ${playerChoice.name}...');
     bool result = quizService.checkPlayerAnswer(playerChoice);
-    result ? print('Player got it RIGHT') : print('Player got it WRONG');
+    result ? showCorrectToast() : showIncorrectToast();
     setState(() {
       quizService.nextQuestion();
     });
