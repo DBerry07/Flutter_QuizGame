@@ -6,6 +6,7 @@ class QuizService {
 
   QuizModel _quizModel;
   int _questionNumber = 0;
+  int correctAnswers = 0;
 
   QuizService({required QuizModel quizModel}) : _quizModel = quizModel;
 
@@ -14,6 +15,7 @@ class QuizService {
   }
 
   int getQuestionNumber() {
+    if (_questionNumber == 0) correctAnswers = 0;
     return _questionNumber;
   }
 
@@ -44,7 +46,10 @@ class QuizService {
 
   bool checkPlayerAnswer(QuizChoice playerChoice) {
     QuizQuestion question = _quizModel.getQuestion(_questionNumber);
-    return playerChoice == question.answer;
+    bool result = playerChoice == question.answer;
+    result ? correctAnswers++ : null;
+    print('number of correct answers: $correctAnswers');
+    return result;
   }
 
   void nextQuestion() {
