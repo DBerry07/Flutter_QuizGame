@@ -75,7 +75,7 @@ class MyButton extends StatelessWidget {
         }: () {print('Empty onPressed');},
         child: Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Text(text, style: kQuestionTextStyle,),
+          child: Text(text, style: kAnswerButtonText,),
         ),
       ),
     );
