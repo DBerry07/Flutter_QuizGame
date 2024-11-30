@@ -19,6 +19,9 @@ class _HomepageState extends State<Homepage> {
     print('Checking player answer of ${playerChoice.name}...');
     bool result = quizService.checkPlayerAnswer(playerChoice);
     result ? print('Player got it RIGHT') : print('Player got it WRONG');
+    setState(() {
+      quizService.nextQuestion();
+    });
   }
 
   @override
