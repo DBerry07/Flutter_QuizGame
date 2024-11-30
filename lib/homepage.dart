@@ -33,8 +33,9 @@ class _HomepageState extends State<Homepage> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          MyCard(isExpanded: false, child: Text('QUESTION ${quizService.getQuestionNumber() + 1}', style: kQuestionTextStyle,),),
-          MyCard(isExpanded: true, child: Text(quizService.getQuestionText(), style: kQuestionTextStyle,),),
+          MyCard(child: Text('QUESTION ${quizService.getQuestionNumber() + 1}', style: kQuestionTextStyle,),),
+          Expanded(child: MyCard(child: Text(quizService.getQuestionText(), style: kQuestionTextStyle,),)),
+          
           quizService.getChoice1() != null
               ? MyButton(text: quizService.getChoice1()!, colour: Colors.blue, onPress:() { checkAnswer(QuizChoice.Choice1); },)
               : Container(),
@@ -82,27 +83,14 @@ class MyButton extends StatelessWidget {
 }
 
 class MyCard extends StatelessWidget {
-  const MyCard({super.key, this.child, required this.isExpanded});
+  const MyCard({super.key, this.child});
 
   final Widget? child;
-  final bool isExpanded;
 
   @override
   Widget build(BuildContext context) {
-
-    Widget widget = isExpanded ?
-    Expanded(
-      child: Container(
-        padding: EdgeInsets.all(15.0),
-        margin: EdgeInsets.all(5.0),
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(15.0),
-            color: kContainerColour
-        ),
-        child: child,
-      ),
-    ) :
-    Container(
+    
+    return Container(
       padding: EdgeInsets.all(15.0),
       margin: EdgeInsets.all(5.0),
       decoration: BoxDecoration(
@@ -112,6 +100,5 @@ class MyCard extends StatelessWidget {
       child: child,
     );
 
-    return widget;
   }
 }
