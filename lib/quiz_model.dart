@@ -4,7 +4,7 @@ import 'package:flutter_quiz_app/quiz_question.dart';
 class QuizModel {
 
   final List<QuizQuestion> _questionBank = [
-    QuizQuestion(questionText: 'Right is right and left is left.', choice1: 'True', choice2: 'False'),
+    QuizQuestion(questionText: 'Right is right and left is left.', choice1: 'True', choice2: 'False', answer: QuizChoice.Choice1),
   ];
 
   List<QuizQuestion> getQuestionBank() => _questionBank;

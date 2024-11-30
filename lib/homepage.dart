@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_quiz_app/constants.dart';
 import 'package:flutter_quiz_app/quiz_model.dart';
+import 'package:flutter_quiz_app/quiz_question.dart';
 import 'package:flutter_quiz_app/quiz_service.dart';
 
 class Homepage extends StatefulWidget {
@@ -13,6 +14,12 @@ class Homepage extends StatefulWidget {
 
 class _HomepageState extends State<Homepage> {
   QuizService quizService = QuizService(quizModel: QuizModel());
+
+  void checkAnswer(QuizChoice playerChoice) {
+    print('Checking player answer of ${playerChoice.name}...');
+    bool result = quizService.checkPlayerAnswer(playerChoice);
+    result ? print('Player got it RIGHT') : print('Player got it WRONG');
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -26,16 +33,16 @@ class _HomepageState extends State<Homepage> {
           MyCard(isExpanded: false, child: Text('QUESTION ${quizService.getQuestionNumber() + 1}', style: kQuestionTextStyle,),),
           MyCard(isExpanded: true, child: Text(quizService.getQuestionText(), style: kQuestionTextStyle,),),
           quizService.getChoice1() != null
-              ? MyButton(text: quizService.getChoice1()!, colour: Colors.blue,)
+              ? MyButton(text: quizService.getChoice1()!, colour: Colors.blue, onPress:() { checkAnswer(QuizChoice.Choice1); },)
               : Container(),
           quizService.getChoice2() != null
-              ? MyButton(text: quizService.getChoice2()!, colour: Colors.red,)
+              ? MyButton(text: quizService.getChoice2()!, colour: Colors.red, onPress:() { checkAnswer(QuizChoice.Choice2); },)
               : Container(),
           quizService.getChoice3() != null
-              ? MyButton(text: quizService.getChoice3()!, colour: Colors.green,)
+              ? MyButton(text: quizService.getChoice3()!, colour: Colors.green, onPress:() { checkAnswer(QuizChoice.Choice3); },)
               : Container(),
           quizService.getChoice4() != null
-              ? MyButton(text: quizService.getChoice4()!, colour: Colors.yellow)
+              ? MyButton(text: quizService.getChoice4()!, colour: Colors.yellow, onPress:() { checkAnswer(QuizChoice.Choice4); },)
               : Container(),
         ],
       ),
@@ -58,7 +65,10 @@ class MyButton extends StatelessWidget {
         style: ButtonStyle(
           backgroundColor: MaterialStateProperty.all(colour),
         ),
-        onPressed: onPress != null ? onPress!() : null,
+        onPressed: onPress != null ? () {
+          print('BUTTON PRESSED');
+          onPress!();
+        }: () {print('Empty onPressed');},
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Text(text, style: kQuestionTextStyle,),
