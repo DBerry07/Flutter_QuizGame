@@ -14,6 +14,8 @@ class Homepage extends StatefulWidget {
 
 class _HomepageState extends State<Homepage> {
   QuizService quizService = QuizService(quizModel: QuizModel());
+  Color backgroundColour = kChoice1Colour;
+
 
   void checkAnswer(QuizChoice playerChoice) {
     print('Checking player answer of ${playerChoice.name}...');
@@ -22,11 +24,37 @@ class _HomepageState extends State<Homepage> {
     setState(() {
       quizService.nextQuestion();
     });
+    changeBackgroundColour();
   }
+
+  void changeBackgroundColour() {
+    int questionNumber = quizService.getQuestionNumber() + 1;
+
+    if (questionNumber % 4 == 0) {
+      setState(() {
+        backgroundColour = kChoice4Colour;
+      });
+    } else if (questionNumber % 3 == 0) {
+      setState(() {
+        backgroundColour = kChoice3Colour;
+      });
+    } else if (questionNumber % 2 == 0) {
+      setState(() {
+        backgroundColour = kChoice2Colour;
+      });
+    } else {
+      setState(() {
+        backgroundColour = kChoice1Colour;
+      });
+    }
+
+  }
+
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: backgroundColour,
       appBar: AppBar(
         title: Text('QUIZ APP'),
       ),
@@ -35,18 +63,18 @@ class _HomepageState extends State<Homepage> {
         children: [
           MyCard(child: Text('QUESTION ${quizService.getQuestionNumber() + 1}', style: kQuestionTextStyle,),),
           Expanded(child: MyCard(child: Text(quizService.getQuestionText(), style: kQuestionTextStyle,),)),
-          
+
           quizService.getChoice1() != null
-              ? MyButton(text: quizService.getChoice1()!, colour: Colors.blue, onPress:() { checkAnswer(QuizChoice.Choice1); },)
+              ? MyButton(text: quizService.getChoice1()!, colour: kChoice1Colour, onPress:() { checkAnswer(QuizChoice.Choice1); },)
               : Container(),
           quizService.getChoice2() != null
-              ? MyButton(text: quizService.getChoice2()!, colour: Colors.red, onPress:() { checkAnswer(QuizChoice.Choice2); },)
+              ? MyButton(text: quizService.getChoice2()!, colour: kChoice2Colour, onPress:() { checkAnswer(QuizChoice.Choice2); },)
               : Container(),
           quizService.getChoice3() != null
-              ? MyButton(text: quizService.getChoice3()!, colour: Colors.green, onPress:() { checkAnswer(QuizChoice.Choice3); },)
+              ? MyButton(text: quizService.getChoice3()!, colour: kChoice3Colour, onPress:() { checkAnswer(QuizChoice.Choice3); },)
               : Container(),
           quizService.getChoice4() != null
-              ? MyButton(text: quizService.getChoice4()!, colour: Colors.yellow, onPress:() { checkAnswer(QuizChoice.Choice4); },)
+              ? MyButton(text: quizService.getChoice4()!, colour: kChoice4Colour, onPress:() { checkAnswer(QuizChoice.Choice4); },)
               : Container(),
         ],
       ),
