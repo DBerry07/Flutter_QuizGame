@@ -15,7 +15,7 @@ const kQuestionTextStyle = TextStyle(
 );
 
 const kAnswerButtonText = TextStyle(
-  color: Colors.black,
+  color: Colors.white,
   fontWeight: FontWeight.bold,
   fontSize: 25,
 );
@@ -23,4 +23,4 @@ const kAnswerButtonText = TextStyle(
 const kChoice1Colour = Colors.blue;
 const kChoice2Colour = Colors.red;
 const kChoice3Colour = Colors.green;
-const kChoice4Colour = Colors.yellow;
+const kChoice4Colour = Colors.orange;
