@@ -23,8 +23,8 @@ class _HomepageState extends State<Homepage> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          MyCard(child: Text('QUESTION ${quizService.getQuestionNumber() + 1}', style: kQuestionTextStyle,), isExpanded: false,),
-          MyCard(child: Text(quizService.getQuestionText(), style: kQuestionTextStyle,), isExpanded: true,),
+          MyCard(isExpanded: false, child: Text('QUESTION ${quizService.getQuestionNumber() + 1}', style: kQuestionTextStyle,),),
+          MyCard(isExpanded: true, child: Text(quizService.getQuestionText(), style: kQuestionTextStyle,),),
           quizService.getChoice1() != null
               ? MyButton(text: quizService.getChoice1()!, colour: Colors.blue,)
               : Container(),
@@ -52,12 +52,18 @@ class MyButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextButton(
-      style: ButtonStyle(
-        backgroundColor: MaterialStateProperty.all(colour),
+    return Padding(
+      padding: const EdgeInsets.all(2.0),
+      child: TextButton(
+        style: ButtonStyle(
+          backgroundColor: MaterialStateProperty.all(colour),
+        ),
+        onPressed: onPress != null ? onPress!() : null,
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Text(text, style: kQuestionTextStyle,),
+        ),
       ),
-      onPressed: onPress != null ? onPress!() : null,
-      child: Text(text),
     );
   }
 }
