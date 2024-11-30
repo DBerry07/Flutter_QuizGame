@@ -56,6 +56,7 @@ class _HomepageState extends State<Homepage> {
     return Scaffold(
       backgroundColor: backgroundColour,
       appBar: AppBar(
+        backgroundColor: backgroundColour,
         title: Text('QUIZ APP'),
       ),
       body: Column(
