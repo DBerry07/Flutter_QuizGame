@@ -13,10 +13,10 @@ class QuizQuestion {
     String? choice4,
     required this.answer,
   }) {
-    print(choice1);
-    print(choice2);
     choices[QuizChoice.Choice1] = choice1;
     choices[QuizChoice.Choice2] = choice2;
+    choice3 != null ? choices[QuizChoice.Choice3] = choice3: '';
+    choice4 != null ? choices[QuizChoice.Choice4] = choice4: '';
   }
 
 }
