@@ -1,6 +1,6 @@
 import 'package:flash/flash.dart';
 import 'package:flash/flash_helper.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_quiz_app/constants.dart';
 import 'package:flutter_quiz_app/quiz_model.dart';
@@ -19,21 +19,21 @@ class _HomepageState extends State<Homepage> {
 
   void showCorrectToast() {
     context.showFlash<bool>(
-      duration: Duration(seconds: 2),
+      duration: const Duration(seconds: 2),
       builder: (context, controller) => FlashBar(
         backgroundColor: Colors.green,
         position: FlashPosition.top,
         controller: controller,
-        shape: RoundedRectangleBorder(
+        shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.vertical(bottom: Radius.circular(16)),
           side: BorderSide(),
         ),
         clipBehavior: Clip.hardEdge,
-        icon: Icon(
+        icon: const Icon(
           Icons.check,
           color: Colors.white,
         ),
-        content: Text(
+        content: const Text(
           'Correct!',
           style: kQuestionTextStyle,
         ),
@@ -43,27 +43,29 @@ class _HomepageState extends State<Homepage> {
 
   void showIncorrectToast() {
     context.showFlash<bool>(
-      duration: Duration(seconds: 2),
+      duration: const Duration(seconds: 2),
       builder: (context, controller) => FlashBar(
         backgroundColor: Colors.red,
         position: FlashPosition.top,
         controller: controller,
-        shape: RoundedRectangleBorder(
+        shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.vertical(bottom: Radius.circular(16)),
           side: BorderSide(),
         ),
         clipBehavior: Clip.hardEdge,
-        icon: Icon(
+        icon: const Icon(
           Icons.close,
           color: Colors.white,
         ),
-        content: Text('Incorrect!', style: kQuestionTextStyle),
+        content: const Text('Incorrect!', style: kQuestionTextStyle),
       ),
     );
   }
 
   void checkAnswer(QuizChoice playerChoice) {
-    print('Checking player answer of ${playerChoice.name}...');
+    if (kDebugMode) {
+      print('Checking player answer of ${playerChoice.name}...');
+    }
     bool result = quizService.checkPlayerAnswer(playerChoice);
     result ? showCorrectToast() : showIncorrectToast();
     setState(() {
@@ -77,7 +79,7 @@ class _HomepageState extends State<Homepage> {
       backgroundColor: kScaffoldBackgroundColour,
       appBar: AppBar(
         backgroundColor: kAppBarBackgroundColour,
-        title: Text('QUIZ APP'),
+        title: const Text('QUIZ APP'),
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -150,8 +152,8 @@ class MyButton extends StatelessWidget {
       padding: const EdgeInsets.all(2.0),
       child: TextButton(
         style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all(Colors.white),
-          shape: MaterialStateProperty.all(
+          backgroundColor: const WidgetStatePropertyAll(Colors.white),
+          shape: WidgetStatePropertyAll(
             RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(kButtonBorderRadius),
               side: BorderSide(
@@ -163,11 +165,15 @@ class MyButton extends StatelessWidget {
         ),
         onPressed: onPress != null
             ? () {
-                print('BUTTON PRESSED');
+                if (kDebugMode) {
+                  print('BUTTON PRESSED');
+                }
                 onPress!();
               }
             : () {
-                print('Empty onPressed');
+                if (kDebugMode) {
+                  print('Empty onPressed');
+                }
               },
         child: Padding(
           padding: const EdgeInsets.all(8.0),
@@ -189,8 +195,8 @@ class MyCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(15.0),
-      margin: EdgeInsets.all(5.0),
+      padding: const EdgeInsets.all(15.0),
+      margin: const EdgeInsets.all(5.0),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15.0), color: kContainerColour),
       child: child,
