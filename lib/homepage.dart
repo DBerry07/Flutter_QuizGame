@@ -2,6 +2,7 @@ import 'package:flash/flash.dart';
 import 'package:flash/flash_helper.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_quiz_app/colours.dart';
 import 'package:flutter_quiz_app/constants.dart';
 import 'package:flutter_quiz_app/quiz_model.dart';
 import 'package:flutter_quiz_app/quiz_question.dart';
@@ -76,7 +77,7 @@ class _HomepageState extends State<Homepage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: kScaffoldBackgroundColour,
+      backgroundColor: charcoalGrey,
       appBar: AppBar(
         backgroundColor: kAppBarBackgroundColour,
         title: const Text('QUIZ APP'),
