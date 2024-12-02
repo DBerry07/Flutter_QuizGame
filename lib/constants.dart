@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 
+import 'colours.dart';
+
 ThemeData myTheme = ThemeData.from(
-    colorScheme: const ColorScheme.light(
-      surface: Colors.green,
+    colorScheme: ColorScheme.light(
+      primary: Colors.amber,
+      surface: forestGreen,
     ),
     useMaterial3: false);
 
@@ -15,7 +18,7 @@ const kQuestionTextStyle = TextStyle(
 );
 
 const kAnswerButtonText = TextStyle(
-  color: Colors.white,
+  color: Colors.black,
   fontWeight: FontWeight.bold,
   fontSize: 25,
 );

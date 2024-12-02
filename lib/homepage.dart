@@ -7,6 +7,7 @@ import 'package:flutter_quiz_app/constants.dart';
 import 'package:flutter_quiz_app/quiz_model.dart';
 import 'package:flutter_quiz_app/quiz_question.dart';
 import 'package:flutter_quiz_app/quiz_service.dart';
+import 'package:flutter_quiz_app/results_page.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({super.key});
@@ -70,16 +71,19 @@ class _HomepageState extends State<Homepage> {
     bool result = quizService.checkPlayerAnswer(playerChoice);
     result ? showCorrectToast() : showIncorrectToast();
     setState(() {
-      quizService.nextQuestion();
+      bool result = quizService.nextQuestion();
+      if (result) {
+        Navigator.push(context, MaterialPageRoute(builder: (context) => ResultsPage(quizService),),);
+      }
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: charcoalGrey,
+      // backgroundColor: charcoalGrey,
       appBar: AppBar(
-        backgroundColor: kAppBarBackgroundColour,
+        // backgroundColor: kAppBarBackgroundColour,
         title: const Text('QUIZ APP'),
       ),
       body: Column(

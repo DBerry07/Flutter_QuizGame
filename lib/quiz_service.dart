@@ -52,12 +52,18 @@ class QuizService {
     return result;
   }
 
-  void nextQuestion() {
+  bool nextQuestion() {
     _questionNumber++;
 
     if (_questionNumber >= _quizModel.getQuestionBank().length) {
       _questionNumber = 0;
+      return true;
     }
+    return false;
+  }
+
+  int getTotalQuestions() {
+    return _quizModel.getQuestionBank().length;
   }
 
 }
