@@ -36,20 +36,29 @@ class _HomepageState extends State<Homepage> {
       print('showing dialog');
       print(explanation);
     }
+
+    alertDialog(result: result, explanation: quizService.getQuestionExplanation());
+
+  }
+
+  void alertDialog({bool result = false, String? explanation}) {
     showDialog(
         context: context,
         builder: (context) {
           return AlertDialog(
             title: result
                 ? const Text(
-                    'Correct!',
-                    style: kCorrectText,
-                  )
+              'Correct!',
+              style: kCorrectText,
+            )
                 : const Text(
-                    'Incorrect',
-                    style: kIncorrectText,
-                  ),
-            content: Text(explanation ?? ''),
+              'Incorrect',
+              style: kIncorrectText,
+            ),
+            content: Text(
+              explanation ?? '',
+              style: kPopupContent,
+            ),
           );
         }).whenComplete(() {
       setState(() {
@@ -63,7 +72,8 @@ class _HomepageState extends State<Homepage> {
           );
         }
       });
-    });
+    },
+    );
   }
 
   @override
