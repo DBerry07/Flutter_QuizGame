@@ -74,9 +74,9 @@ class _HomepageState extends State<Homepage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey,
+      backgroundColor: kScaffoldBackgroundColour,
       appBar: AppBar(
-        backgroundColor: Colors.amber,
+        backgroundColor: kAppBarBackgroundColour,
         title: Text('QUIZ APP'),
       ),
       body: Column(
@@ -150,7 +150,6 @@ class MyButton extends StatelessWidget {
       padding: const EdgeInsets.all(2.0),
       child: TextButton(
         style: ButtonStyle(
-          // backgroundColor: MaterialStateProperty.all(colour),
           backgroundColor: MaterialStateProperty.all(Colors.white),
           shape: MaterialStateProperty.all(
             RoundedRectangleBorder(
