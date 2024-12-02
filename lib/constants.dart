@@ -23,6 +23,18 @@ const kAnswerButtonText = TextStyle(
   fontSize: 25,
 );
 
+const kCorrectText = TextStyle(
+  color: Colors.green,
+  fontWeight: FontWeight.bold,
+  fontSize: 25,
+);
+
+const kIncorrectText = TextStyle(
+  color: Colors.red,
+  fontWeight: FontWeight.bold,
+  fontSize: 25,
+);
+
 const kChoice1Colour = Colors.blue;
 const kChoice2Colour = Colors.red;
 const kChoice3Colour = Colors.green;

@@ -40,7 +40,15 @@ class _HomepageState extends State<Homepage> {
         context: context,
         builder: (context) {
           return AlertDialog(
-            title: result ? const Text('Correct!') : const Text('Incorrect'),
+            title: result
+                ? const Text(
+                    'Correct!',
+                    style: kCorrectText,
+                  )
+                : const Text(
+                    'Incorrect',
+                    style: kIncorrectText,
+                  ),
             content: Text(explanation ?? ''),
           );
         }).whenComplete(() {
