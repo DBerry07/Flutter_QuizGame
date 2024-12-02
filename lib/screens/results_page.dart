@@ -1,8 +1,9 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_quiz_app/constants.dart';
-import 'package:flutter_quiz_app/screens/homepage.dart';
 import 'package:flutter_quiz_app/data/quiz_service.dart';
+
+import '../components/my_button.dart';
+import '../components/my_card.dart';
 
 class ResultsPage extends StatelessWidget {
   const ResultsPage(this.quizService, {super.key});
@@ -14,13 +15,13 @@ class ResultsPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.amber,
-        title: Text('RESULTS'),
+        title: const Text('RESULTS'),
       ),
       body: Center(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Center(
+            const Center(
                 child: MyCard(
                     child: Padding(
                         padding: EdgeInsets.all(10.0),
@@ -30,19 +31,19 @@ class ResultsPage extends StatelessWidget {
                         )))),
             Expanded(
               child: Padding(
-                padding: EdgeInsets.all(10.0),
+                padding: const EdgeInsets.all(10.0),
                 child: MyCard(
                   child: Center(
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        Text('You got...', style: kAnswerButtonText),
+                        const Text('You got...', style: kAnswerButtonText),
                         Text(
                           '${quizService.correctAnswers.toString()} out of ${quizService.getTotalQuestions()}',
                           style:
                               kQuestionTextStyle.copyWith(color: Colors.amber, fontSize: 40),
                         ),
-                        Text(
+                        const Text(
                           '...correct!',
                           style: kAnswerButtonText,
                         ),
