@@ -98,7 +98,6 @@ class QuizModel {
         answer: QuizChoice.Choice1,
     explanation: 'This is true. Examples include coffee made from beans excreted by elephants and Asian palm civets.'
     ),
-    QuizQuestion(questionText: 'Proceed to results screen?', choice1: 'Yes, please!', answer: QuizChoice.Choice4),
   ];
 
   List<QuizQuestion> getQuestionBank() => _questionBank;
