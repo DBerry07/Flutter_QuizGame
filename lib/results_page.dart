@@ -23,25 +23,29 @@ class ResultsPage extends StatelessWidget {
             Center(
                 child: MyCard(
                     child: Padding(
-                        padding: EdgeInsets.all(20.0),
+                        padding: EdgeInsets.all(10.0),
                         child: Text(
                           'Your results',
                           style: kQuestionTextStyle,
                         )))),
             Expanded(
               child: Padding(
-                padding: EdgeInsets.all(20.0),
+                padding: EdgeInsets.all(10.0),
                 child: MyCard(
                   child: Center(
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        Text('You got', style: kAnswerButtonText),
+                        Text('You got...', style: kAnswerButtonText),
                         Text(
-                          '${quizService.correctAnswers.toString()} / ${quizService.getTotalQuestions()}',
-                          style: kQuestionTextStyle,
+                          '${quizService.correctAnswers.toString()} out of ${quizService.getTotalQuestions()}',
+                          style:
+                              kQuestionTextStyle.copyWith(color: Colors.amber, fontSize: 40),
                         ),
-                        Text('Correct!', style: kAnswerButtonText,),
+                        Text(
+                          '...correct!',
+                          style: kAnswerButtonText,
+                        ),
                       ],
                     ),
                   ),
@@ -49,7 +53,15 @@ class ResultsPage extends StatelessWidget {
               ),
             ),
             MyCard(
-              child: OutlinedButton(onPressed: () { Navigator.pop(context); }, child: Text('Go back', style: kAnswerButtonText),),
+              child: OutlinedButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: Padding(padding: EdgeInsets.all(20.0), child: Text('Go back', style: kAnswerButtonText)),
+                style: ButtonStyle(
+                  backgroundColor: WidgetStatePropertyAll(Colors.amber),
+                )
+              ),
             )
           ],
         ),
