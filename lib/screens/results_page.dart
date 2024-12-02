@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_quiz_app/constants.dart';
-import 'package:flutter_quiz_app/homepage.dart';
-import 'package:flutter_quiz_app/quiz_service.dart';
+import 'package:flutter_quiz_app/screens/homepage.dart';
+import 'package:flutter_quiz_app/data/quiz_service.dart';
 
 class ResultsPage extends StatelessWidget {
   const ResultsPage(this.quizService, {super.key});

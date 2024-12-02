@@ -4,10 +4,10 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_quiz_app/colours.dart';
 import 'package:flutter_quiz_app/constants.dart';
-import 'package:flutter_quiz_app/quiz_model.dart';
-import 'package:flutter_quiz_app/quiz_question.dart';
-import 'package:flutter_quiz_app/quiz_service.dart';
-import 'package:flutter_quiz_app/results_page.dart';
+import 'package:flutter_quiz_app/data/quiz_model.dart';
+import 'package:flutter_quiz_app/data/quiz_question.dart';
+import 'package:flutter_quiz_app/data/quiz_service.dart';
+import 'package:flutter_quiz_app/screens/results_page.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({super.key});

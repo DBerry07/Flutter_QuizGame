@@ -1,6 +1,6 @@
 
-import 'package:flutter_quiz_app/quiz_model.dart';
-import 'package:flutter_quiz_app/quiz_question.dart';
+import 'package:flutter_quiz_app/data/quiz_model.dart';
+import 'package:flutter_quiz_app/data/quiz_question.dart';
 
 class QuizService {
 
