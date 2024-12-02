@@ -12,6 +12,7 @@ class QuizModel {
         explanation:
             'The capital of Australia is Canberra.\n\nSydney and Melbourne are its two largest cities.\n\nTasmania is an island off Australia\'s coast.'
     ),
+    QuizQuestion(questionText: 'This question does not have an explanation.', choice1: 'Continue', answer: QuizChoice.Choice1),
     QuizQuestion(
         questionText: 'What is the largest organ inside the human body?',
         choice1: 'Brain',
