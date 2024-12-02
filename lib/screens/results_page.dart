@@ -38,7 +38,7 @@ class ResultsPage extends StatelessWidget {
                       children: [
                         Text('You got...', style: kAnswerButtonText),
                         Text(
-                          '${quizService.correctAnswers.toString()} out of ${quizService.getTotalQuestions()}',
+                          '${quizService.correctAnswers.toString()} out of ${quizService.getTotalQuestions() - 1}',
                           style:
                               kQuestionTextStyle.copyWith(color: Colors.amber, fontSize: 40),
                         ),

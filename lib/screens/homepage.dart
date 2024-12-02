@@ -86,6 +86,8 @@ class _HomepageState extends State<Homepage> {
       });
     }
 
+    //TODO: Can't read the dialog for the last question; it immediately transitions to the results screen after player answers.
+
     setState(() {
       bool result = quizService.nextQuestion();
       if (result) {

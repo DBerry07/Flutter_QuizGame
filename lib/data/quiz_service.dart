@@ -27,7 +27,7 @@ class QuizService {
   }
   String? getChoice2() {
     // print('Getting choice 2');
-    String choice = _quizModel.getQuestion(_questionNumber).choices[QuizChoice.Choice2] ?? '';
+    String? choice = _quizModel.getQuestion(_questionNumber).choices[QuizChoice.Choice2];
     // print(choice);
     return choice;
   }
