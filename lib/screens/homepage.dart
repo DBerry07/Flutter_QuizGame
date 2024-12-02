@@ -64,7 +64,7 @@ class _HomepageState extends State<Homepage> {
     );
   }
 
-  bool checkAnswer(QuizChoice playerChoice) {
+  void checkAnswer(QuizChoice playerChoice) {
     if (kDebugMode) {
       print('Checking player answer of ${playerChoice.name}...');
     }
@@ -83,18 +83,17 @@ class _HomepageState extends State<Homepage> {
           title: result ? Text('Correct!') : Text('Incorrect'),
           content: Text(explanation),
         );
+      }).whenComplete(() {
+        setState(() {
+          bool result = quizService.nextQuestion();
+          if (result) {
+            Navigator.push(context, MaterialPageRoute(builder: (context) => ResultsPage(quizService),),);
+          }
+        });
       });
     }
 
     //TODO: Can't read the dialog for the last question; it immediately transitions to the results screen after player answers.
-
-    setState(() {
-      bool result = quizService.nextQuestion();
-      if (result) {
-        Navigator.push(context, MaterialPageRoute(builder: (context) => ResultsPage(quizService),),);
-      }
-    });
-    return result;
   }
 
   @override
@@ -126,7 +125,7 @@ class _HomepageState extends State<Homepage> {
                   text: quizService.getChoice1()!,
                   colour: kChoice1Colour,
                   onPress: () {
-                    bool result = checkAnswer(QuizChoice.Choice1);
+                    checkAnswer(QuizChoice.Choice1);
                   },
                 )
               : Container(),
@@ -135,7 +134,7 @@ class _HomepageState extends State<Homepage> {
                   text: quizService.getChoice2()!,
                   colour: kChoice2Colour,
                   onPress: () {
-                    bool result = checkAnswer(QuizChoice.Choice2);
+                    checkAnswer(QuizChoice.Choice2);
                   },
                 )
               : Container(),
@@ -144,7 +143,7 @@ class _HomepageState extends State<Homepage> {
                   text: quizService.getChoice3()!,
                   colour: kChoice3Colour,
                   onPress: () {
-                    bool result = checkAnswer(QuizChoice.Choice3);
+                    checkAnswer(QuizChoice.Choice3);
                   },
                 )
               : Container(),
@@ -153,7 +152,7 @@ class _HomepageState extends State<Homepage> {
                   text: quizService.getChoice4()!,
                   colour: kChoice4Colour,
                   onPress: () {
-                    bool result = checkAnswer(QuizChoice.Choice4);
+                    checkAnswer(QuizChoice.Choice4);
                   },
                 )
               : Container(),
