@@ -64,18 +64,35 @@ class _HomepageState extends State<Homepage> {
     );
   }
 
-  void checkAnswer(QuizChoice playerChoice) {
+  bool checkAnswer(QuizChoice playerChoice) {
     if (kDebugMode) {
       print('Checking player answer of ${playerChoice.name}...');
     }
     bool result = quizService.checkPlayerAnswer(playerChoice);
-    result ? showCorrectToast() : showIncorrectToast();
+
+    print('isCorrect?: $result');
+    // print('questionExplanation not empty?: ${quizService.getQuestionExplanation().isNotEmpty}');
+
+    String? explanation = quizService.getQuestionExplanation();
+
+    if (explanation != null && explanation.isNotEmpty) {
+      print('showing dialog');
+      print(explanation);
+      showDialog(context: context, builder: (context) {
+        return AlertDialog(
+          title: result ? Text('Correct!') : Text('Incorrect'),
+          content: Text(explanation),
+        );
+      });
+    }
+
     setState(() {
       bool result = quizService.nextQuestion();
       if (result) {
         Navigator.push(context, MaterialPageRoute(builder: (context) => ResultsPage(quizService),),);
       }
     });
+    return result;
   }
 
   @override
@@ -107,7 +124,7 @@ class _HomepageState extends State<Homepage> {
                   text: quizService.getChoice1()!,
                   colour: kChoice1Colour,
                   onPress: () {
-                    checkAnswer(QuizChoice.Choice1);
+                    bool result = checkAnswer(QuizChoice.Choice1);
                   },
                 )
               : Container(),
@@ -116,7 +133,7 @@ class _HomepageState extends State<Homepage> {
                   text: quizService.getChoice2()!,
                   colour: kChoice2Colour,
                   onPress: () {
-                    checkAnswer(QuizChoice.Choice2);
+                    bool result = checkAnswer(QuizChoice.Choice2);
                   },
                 )
               : Container(),
@@ -125,7 +142,7 @@ class _HomepageState extends State<Homepage> {
                   text: quizService.getChoice3()!,
                   colour: kChoice3Colour,
                   onPress: () {
-                    checkAnswer(QuizChoice.Choice3);
+                    bool result = checkAnswer(QuizChoice.Choice3);
                   },
                 )
               : Container(),
@@ -134,7 +151,7 @@ class _HomepageState extends State<Homepage> {
                   text: quizService.getChoice4()!,
                   colour: kChoice4Colour,
                   onPress: () {
-                    checkAnswer(QuizChoice.Choice4);
+                    bool result = checkAnswer(QuizChoice.Choice4);
                   },
                 )
               : Container(),

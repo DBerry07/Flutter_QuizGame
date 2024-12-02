@@ -66,4 +66,8 @@ class QuizService {
     return _quizModel.getQuestionBank().length;
   }
 
+  String? getQuestionExplanation() {
+    return _quizModel.getQuestion(_questionNumber).explanation;
+  }
+
 }

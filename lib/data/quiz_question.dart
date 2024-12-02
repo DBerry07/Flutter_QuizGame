@@ -4,6 +4,7 @@ class QuizQuestion {
 
   Map<QuizChoice, String> choices = {};
   QuizChoice answer;
+  final String? explanation;
 
   QuizQuestion({
     required this.questionText,
@@ -12,6 +13,7 @@ class QuizQuestion {
     String? choice3,
     String? choice4,
     required this.answer,
+    this.explanation,
   }) {
     choices[QuizChoice.Choice1] = choice1;
     choices[QuizChoice.Choice2] = choice2;
