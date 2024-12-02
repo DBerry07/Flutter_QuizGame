@@ -16,7 +16,6 @@ class Homepage extends StatefulWidget {
 
 class _HomepageState extends State<Homepage> {
   QuizService quizService = QuizService(quizModel: QuizModel());
-  Color backgroundColour = kChoice1Colour;
 
   void showCorrectToast() {
     context.showFlash<bool>(
@@ -30,9 +29,16 @@ class _HomepageState extends State<Homepage> {
           side: BorderSide(),
         ),
         clipBehavior: Clip.hardEdge,
-        icon: Icon(Icons.check, color: Colors.white,),
-        content: Text('Correct!', style: kQuestionTextStyle,),
-      ),);
+        icon: Icon(
+          Icons.check,
+          color: Colors.white,
+        ),
+        content: Text(
+          'Correct!',
+          style: kQuestionTextStyle,
+        ),
+      ),
+    );
   }
 
   void showIncorrectToast() {
@@ -47,9 +53,13 @@ class _HomepageState extends State<Homepage> {
           side: BorderSide(),
         ),
         clipBehavior: Clip.hardEdge,
-        icon: Icon(Icons.close, color: Colors.white,),
+        icon: Icon(
+          Icons.close,
+          color: Colors.white,
+        ),
         content: Text('Incorrect!', style: kQuestionTextStyle),
-      ),);
+      ),
+    );
   }
 
   void checkAnswer(QuizChoice playerChoice) {
@@ -59,58 +69,67 @@ class _HomepageState extends State<Homepage> {
     setState(() {
       quizService.nextQuestion();
     });
-    changeBackgroundColour();
   }
-
-  void changeBackgroundColour() {
-    int questionNumber = quizService.getQuestionNumber() + 1;
-
-    if (questionNumber % 4 == 0) {
-      setState(() {
-        backgroundColour = kChoice4Colour;
-      });
-    } else if (questionNumber % 3 == 0) {
-      setState(() {
-        backgroundColour = kChoice3Colour;
-      });
-    } else if (questionNumber % 2 == 0) {
-      setState(() {
-        backgroundColour = kChoice2Colour;
-      });
-    } else {
-      setState(() {
-        backgroundColour = kChoice1Colour;
-      });
-    }
-
-  }
-
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backgroundColour,
+      backgroundColor: Colors.grey,
       appBar: AppBar(
-        backgroundColor: backgroundColour,
+        backgroundColor: Colors.amber,
         title: Text('QUIZ APP'),
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          MyCard(child: Text('QUESTION ${quizService.getQuestionNumber() + 1}', style: kQuestionTextStyle,),),
-          Expanded(child: MyCard(child: Text(quizService.getQuestionText(), style: kQuestionTextStyle,),)),
-
+          MyCard(
+            child: Text(
+              'QUESTION ${quizService.getQuestionNumber() + 1}',
+              style: kQuestionTextStyle,
+            ),
+          ),
+          Expanded(
+              child: MyCard(
+            child: Text(
+              quizService.getQuestionText(),
+              style: kQuestionTextStyle,
+            ),
+          )),
           quizService.getChoice1() != null
-              ? MyButton(text: quizService.getChoice1()!, colour: kChoice1Colour, onPress:() { checkAnswer(QuizChoice.Choice1); },)
+              ? MyButton(
+                  text: quizService.getChoice1()!,
+                  colour: kChoice1Colour,
+                  onPress: () {
+                    checkAnswer(QuizChoice.Choice1);
+                  },
+                )
               : Container(),
           quizService.getChoice2() != null
-              ? MyButton(text: quizService.getChoice2()!, colour: kChoice2Colour, onPress:() { checkAnswer(QuizChoice.Choice2); },)
+              ? MyButton(
+                  text: quizService.getChoice2()!,
+                  colour: kChoice2Colour,
+                  onPress: () {
+                    checkAnswer(QuizChoice.Choice2);
+                  },
+                )
               : Container(),
           quizService.getChoice3() != null
-              ? MyButton(text: quizService.getChoice3()!, colour: kChoice3Colour, onPress:() { checkAnswer(QuizChoice.Choice3); },)
+              ? MyButton(
+                  text: quizService.getChoice3()!,
+                  colour: kChoice3Colour,
+                  onPress: () {
+                    checkAnswer(QuizChoice.Choice3);
+                  },
+                )
               : Container(),
           quizService.getChoice4() != null
-              ? MyButton(text: quizService.getChoice4()!, colour: kChoice4Colour, onPress:() { checkAnswer(QuizChoice.Choice4); },)
+              ? MyButton(
+                  text: quizService.getChoice4()!,
+                  colour: kChoice4Colour,
+                  onPress: () {
+                    checkAnswer(QuizChoice.Choice4);
+                  },
+                )
               : Container(),
         ],
       ),
@@ -131,15 +150,32 @@ class MyButton extends StatelessWidget {
       padding: const EdgeInsets.all(2.0),
       child: TextButton(
         style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all(colour),
+          // backgroundColor: MaterialStateProperty.all(colour),
+          backgroundColor: MaterialStateProperty.all(Colors.white),
+          shape: MaterialStateProperty.all(
+            RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(kButtonBorderRadius),
+              side: BorderSide(
+                  color: colour ?? Colors.black,
+                  width: kButtonBorderWidth,
+                  style: BorderStyle.solid),
+            ),
+          ),
         ),
-        onPressed: onPress != null ? () {
-          print('BUTTON PRESSED');
-          onPress!();
-        }: () {print('Empty onPressed');},
+        onPressed: onPress != null
+            ? () {
+                print('BUTTON PRESSED');
+                onPress!();
+              }
+            : () {
+                print('Empty onPressed');
+              },
         child: Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Text(text, style: kAnswerButtonText,),
+          child: Text(
+            text,
+            style: kAnswerButtonText.copyWith(color: colour),
+          ),
         ),
       ),
     );
@@ -153,16 +189,12 @@ class MyCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
     return Container(
       padding: EdgeInsets.all(15.0),
       margin: EdgeInsets.all(5.0),
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(15.0),
-          color: kContainerColour
-      ),
+          borderRadius: BorderRadius.circular(15.0), color: kContainerColour),
       child: child,
     );
-
   }
 }

@@ -24,3 +24,6 @@ const kChoice1Colour = Colors.blue;
 const kChoice2Colour = Colors.red;
 const kChoice3Colour = Colors.green;
 const kChoice4Colour = Colors.orange;
+
+const double kButtonBorderWidth = 5;
+const kButtonBorderRadius = 30.0;
