@@ -29,6 +29,10 @@ const kCorrectText = TextStyle(
   fontSize: 25,
 );
 
+const kPopupContent = TextStyle(
+  fontSize: 22,
+);
+
 const kIncorrectText = TextStyle(
   color: Colors.red,
   fontWeight: FontWeight.bold,
