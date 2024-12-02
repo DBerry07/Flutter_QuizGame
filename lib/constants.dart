@@ -5,7 +5,7 @@ import 'colours.dart';
 ThemeData myTheme = ThemeData.from(
     colorScheme: ColorScheme.light(
       primary: Colors.amber,
-      surface: navyBlue,
+      surface: ivory,
     ),
     useMaterial3: false);
 
