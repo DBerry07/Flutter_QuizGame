@@ -53,16 +53,13 @@ class ResultsPage extends StatelessWidget {
               ),
             ),
             MyCard(
-              child: OutlinedButton(
-                onPressed: () {
+              child: MyButton(
+                onPress: () {
                   Navigator.pop(context);
                 },
-                child: Padding(padding: EdgeInsets.all(20.0), child: Text('Go back', style: kAnswerButtonText)),
-                style: ButtonStyle(
-                  backgroundColor: WidgetStatePropertyAll(Colors.amber),
+                text: 'Go back',
                 )
               ),
-            )
           ],
         ),
       ),

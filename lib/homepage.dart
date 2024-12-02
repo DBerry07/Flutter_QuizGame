@@ -162,7 +162,7 @@ class MyButton extends StatelessWidget {
             RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(kButtonBorderRadius),
               side: BorderSide(
-                  color: colour ?? Colors.black,
+                  color: colour ?? Colors.amber,
                   width: kButtonBorderWidth,
                   style: BorderStyle.solid),
             ),
