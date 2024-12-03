@@ -10,7 +10,9 @@ class QuizModelAnatomy extends QuizModelInterface {
   @override
   List<QuizQuestion> getQuestionBank() => _questionBank;
 
-  final List<QuizQuestion> _questionBank = [];
+  final List<QuizQuestion> _questionBank = [
+    QuizQuestion(questionText: 'Hello, World!', choice1: 'Continue', answer: QuizChoice.Choice1),
+  ];
 
 
 }
