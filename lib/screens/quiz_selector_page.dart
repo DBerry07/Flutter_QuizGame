@@ -21,7 +21,7 @@ class QuizSelectorPage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Expanded(child: MyCard(child: Center(child: Text(heading, style: kQuestionTextStyle,)))),
+          MyCard(child: Center(child: Text(heading, style: kQuestionTextStyle,))),
           Expanded(
             child: MyCard(
               child: Row(
