@@ -39,7 +39,7 @@ class ResultsPage extends StatelessWidget {
                       children: [
                         const Text('You got...', style: kAnswerButtonText),
                         Text(
-                          '${quizService.correctAnswers.toString()} out of ${quizService.getTotalQuestions()}',
+                          '${quizService.getNumberOfCorrectAnswers().toString()} out of ${quizService.getTotalQuestions()}',
                           style:
                               kQuestionTextStyle.copyWith(color: Colors.amber, fontSize: 40),
                         ),
