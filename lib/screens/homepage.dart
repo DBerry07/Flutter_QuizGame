@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_quiz_app/constants.dart';
+import 'package:flutter_quiz_app/data/quiz_interface.dart';
 import 'package:flutter_quiz_app/data/quiz_model_basic.dart';
 import 'package:flutter_quiz_app/data/quiz_question.dart';
 import 'package:flutter_quiz_app/data/quiz_service.dart';
@@ -10,14 +11,16 @@ import '../components/my_button.dart';
 import '../components/my_card.dart';
 
 class Homepage extends StatefulWidget {
-  const Homepage({super.key});
+  const Homepage({super.key, required this.quizModel});
+
+  final QuizModelInterface quizModel;
 
   @override
   State<Homepage> createState() => _HomepageState();
 }
 
 class _HomepageState extends State<Homepage> {
-  QuizService quizService = QuizService(quizModel: BasicQuizModel());
+  late QuizService quizService = QuizService(quizModel: widget.quizModel);
 
   void checkAnswer(QuizChoice playerChoice) {
     if (kDebugMode) {

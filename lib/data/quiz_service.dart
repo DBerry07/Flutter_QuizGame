@@ -1,14 +1,15 @@
 
+import 'package:flutter_quiz_app/data/quiz_interface.dart';
 import 'package:flutter_quiz_app/data/quiz_model_basic.dart';
 import 'package:flutter_quiz_app/data/quiz_question.dart';
 
 class QuizService {
 
-  BasicQuizModel _quizModel;
+  final QuizModelInterface _quizModel;
   int _questionNumber = 0;
   int correctAnswers = 0;
 
-  QuizService({required BasicQuizModel quizModel}) : _quizModel = quizModel;
+  QuizService({required QuizModelInterface quizModel}) : _quizModel = quizModel;
 
   String getQuestionText() {
     return _quizModel.getQuestionBank()[_questionNumber].questionText;
