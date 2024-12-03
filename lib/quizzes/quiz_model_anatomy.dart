@@ -9,6 +9,7 @@ class QuizModelAnatomy extends QuizModelInterface {
   List<QuizQuestion> getQuestionBank() => _questionBank;
 
   final List<QuizQuestion> _questionBank = [
+    //1
     QuizQuestion(
       questionText: 'Where is the smallest bone in the human body located?',
       choice1: 'Fingers',
@@ -19,6 +20,7 @@ class QuizModelAnatomy extends QuizModelInterface {
       explanation:
           'The smallest bone in the human body is the stapes, which is located in the inner ear.',
     ),
+    //2
     QuizQuestion(
       questionText: 'What is the largest organ in the human body?',
       choice1: 'Liver',
@@ -29,6 +31,7 @@ class QuizModelAnatomy extends QuizModelInterface {
       explanation:
           'The largest organ in the human body is the skin.\n\nHowever, the largest internal organ in the human body is the liver.',
     ),
+    //3
     QuizQuestion(
       questionText: 'Where is the strongest muscle in the human body located?',
       choice1: 'Face',
@@ -39,6 +42,7 @@ class QuizModelAnatomy extends QuizModelInterface {
       explanation:
           'The strongest muscle in the human body is the \'masseter\' - the jaw muscle.',
     ),
+    //4
     QuizQuestion(
       questionText: 'How many chambers does the human heart have?',
       choice1: '6',
@@ -49,6 +53,7 @@ class QuizModelAnatomy extends QuizModelInterface {
       explanation:
           'The human heart has four chambers: the right atrium, the right ventricle, the left atrium, and the left ventricle.',
     ),
+    //5
     QuizQuestion(
       questionText: 'The RIGHT ATRIUM in the human heart:',
       choice1: 'receives blood from the lungs',
@@ -59,6 +64,7 @@ class QuizModelAnatomy extends QuizModelInterface {
       explanation:
           'The right atrium receives deoxygenated blood from the body.',
     ),
+    //6
     QuizQuestion(
       questionText: 'The LEFT ATRIUM in the human heart:',
       choice1: 'receives blood from the lungs',
@@ -68,6 +74,7 @@ class QuizModelAnatomy extends QuizModelInterface {
       answer: QuizChoice.Choice1,
       explanation: 'The left atrium receives oxygenated blood from the lungs.',
     ),
+    //7
     QuizQuestion(
       questionText: 'The RIGHT VENTRICLE in the human heart:',
       choice1: 'receives blood from the lungs',
@@ -77,6 +84,7 @@ class QuizModelAnatomy extends QuizModelInterface {
       answer: QuizChoice.Choice3,
       explanation: 'The right ventricle pumps deoxygenated blood to the lungs.',
     ),
+    //8
     QuizQuestion(
       questionText: 'The LEFT VENTRICLE in the human heart:',
       choice1: 'receives blood from the lungs',
@@ -86,6 +94,7 @@ class QuizModelAnatomy extends QuizModelInterface {
       answer: QuizChoice.Choice4,
       explanation: 'The left ventricle pumps oxygenated blood to the body.',
     ),
+    //9
     QuizQuestion(
       questionText: 'The hyoid bone is located...',
       choice1: 'in the fingers',
@@ -95,6 +104,7 @@ class QuizModelAnatomy extends QuizModelInterface {
       answer: QuizChoice.Choice4,
       explanation: 'The hyoid bone is located in the neck.',
     ),
+    //10
     QuizQuestion(
       questionText: 'How many bones are in the human body?',
       choice1: '206',

@@ -8,6 +8,7 @@ class BasicQuizModel extends QuizModelInterface{
   //TODO: move question banks from Firebase database
 
   final List<QuizQuestion> _questionBank = [
+    //1
     QuizQuestion(
       questionText: 'What is the capital of Australia?',
       choice1: 'Sydney',
@@ -18,11 +19,13 @@ class BasicQuizModel extends QuizModelInterface{
       explanation:
           'The capital of Australia is Canberra.\n\nSydney and Melbourne are its two largest cities.\n\nTasmania is an island off Australia\'s coast.',
     ),
+    //2
     QuizQuestion(
       questionText: 'This question does not have an explanation.',
       choice1: 'Continue',
       answer: QuizChoice.Choice1,
     ),
+    //3
     QuizQuestion(
       questionText: 'What is the largest internal organ inside the human body?',
       choice1: 'Brain',
@@ -32,6 +35,7 @@ class BasicQuizModel extends QuizModelInterface{
       answer: QuizChoice.Choice2,
       explanation: 'The largest organ inside the human body is the liver.',
     ),
+    //4
     QuizQuestion(
       questionText: 'Who painted the Mona Lisa?',
       choice1: 'Michelangelo',
@@ -41,6 +45,7 @@ class BasicQuizModel extends QuizModelInterface{
       explanation:
           'Leonardo da Vinci painted the Mona Lisa. He lived from the mid 1400\'s to the early 1500\'s.\n\nMichelangelo lived at roughly the same time as da Vinci; he created the sculpture of David.\n\nDonatello was a sculptor who died when da Vinci was a teenager.\n\nAll three men lived during the period of time known as the Italian Renaissance.',
     ),
+    //5
     QuizQuestion(
       questionText: 'What is the largest planet in the solar system?',
       choice1: 'Jupiter',
@@ -51,6 +56,7 @@ class BasicQuizModel extends QuizModelInterface{
       explanation:
           'Jupiter is the largest planet in the solar system.\n\nLike Jupiter, Neptune and Saturn are both gas giants.\n\nEarth is quite a bit smaller than any of them.',
     ),
+    //6
     QuizQuestion(
       questionText:
           'The farthest thing we can see from Earth is in a different galaxy.',
@@ -60,6 +66,7 @@ class BasicQuizModel extends QuizModelInterface{
       explanation:
           'The farthest object ever observed from Earth is HD1, which lies 13.3 billion light-years away from Earth. HD1 itself is not a star; it\'s an entire galaxy.',
     ),
+    //7
     QuizQuestion(
       questionText: 'A group of owls is called a:',
       choice1: 'Flock',
@@ -69,6 +76,7 @@ class BasicQuizModel extends QuizModelInterface{
       answer: QuizChoice.Choice4,
       explanation: 'A group of owls is called a Parliament.',
     ),
+    //8
     QuizQuestion(
       questionText:
           'Earth is the only planet to spin counterclockwise. All the others spin clockwise.',
@@ -78,6 +86,7 @@ class BasicQuizModel extends QuizModelInterface{
       explanation:
           'All of the planets in the solar system spin counterclockwise, except for Venus, which spins clockwise.',
     ),
+    //9
     QuizQuestion(
       questionText: 'What is the national animal of Scotland?',
       choice1: 'Lion',
@@ -87,6 +96,7 @@ class BasicQuizModel extends QuizModelInterface{
       answer: QuizChoice.Choice3,
       explanation: 'The national animal of Scotland is the Unicorn.',
     ),
+    //10
     QuizQuestion(
       questionText: 'What is the largest desert in the world?',
       choice1: 'Antarctica',
@@ -97,6 +107,7 @@ class BasicQuizModel extends QuizModelInterface{
       explanation:
           'The largest desert on Earth is Antarctica.\nA desert doesn\'t necessarily need to be hot!',
     ),
+    //11
     QuizQuestion(
       questionText: 'The moon has always been geologically inactive.',
       choice1: 'True',
@@ -105,6 +116,7 @@ class BasicQuizModel extends QuizModelInterface{
       explanation:
           'Back during the time when dinosaurs roamed the Earth, the moon had active volcanoes.',
     ),
+    //12
     QuizQuestion(
       questionText: '\'Lunatic\' and \'Luddite\' have the same root word.',
       choice1: 'True',
@@ -113,6 +125,7 @@ class BasicQuizModel extends QuizModelInterface{
       explanation:
           '\'Lunatic\' comes from the the Latin name for the moon.\n\n\'Luddite\' might come from Ned Ludd, the (possibly not real) leader of the Luddite rioters in England during the 1800\'s.\nThe original Luddites rioted over how machines were replacing them in their jobs.',
     ),
+    //13
     QuizQuestion(
       questionText:
           'Some of the most expensive types of coffee are made using beans found in certain species of animals\' feces.',
