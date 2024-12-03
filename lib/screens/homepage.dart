@@ -30,14 +30,6 @@ class _HomepageState extends State<Homepage> {
     if (kDebugMode) {
       print('isCorrect?: $result');
     }
-    // print('questionExplanation not empty?: ${quizService.getQuestionExplanation().isNotEmpty}');
-
-    String? explanation = quizService.getQuestionExplanation();
-
-    if (kDebugMode) {
-      // print('showing dialog');
-      // print(explanation);
-    }
 
     alertDialog(result: result, explanation: quizService.getQuestionExplanation());
 
