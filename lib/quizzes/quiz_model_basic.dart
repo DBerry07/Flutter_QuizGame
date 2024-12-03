@@ -23,7 +23,7 @@ class BasicQuizModel extends QuizModelInterface{
       answer: QuizChoice.Choice1,
     ),
     QuizQuestion(
-      questionText: 'What is the largest organ inside the human body?',
+      questionText: 'What is the largest internal organ inside the human body?',
       choice1: 'Brain',
       choice2: 'Liver',
       choice3: 'Stomach',

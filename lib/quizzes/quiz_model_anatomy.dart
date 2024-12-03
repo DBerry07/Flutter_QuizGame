@@ -27,7 +27,7 @@ class QuizModelAnatomy extends QuizModelInterface {
       choice4: 'Brain',
       answer: QuizChoice.Choice2,
       explanation:
-          'The largest organ in the human body is the skin.\n\nHowever, the largest body INSIDE the human body is the liver.',
+          'The largest organ in the human body is the skin.\n\nHowever, the largest internal organ in the human body is the liver.',
     ),
     QuizQuestion(
       questionText: 'Where is the strongest muscle in the human body located?',
