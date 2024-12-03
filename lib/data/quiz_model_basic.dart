@@ -1,6 +1,7 @@
+import 'package:flutter_quiz_app/data/quiz_interface.dart';
 import 'package:flutter_quiz_app/data/quiz_question.dart';
 
-class QuizModel {
+class BasicQuizModel extends QuizModelInterface{
   final List<QuizQuestion> _questionBank = [
     QuizQuestion(
       questionText: 'What is the capital of Australia?',
@@ -118,7 +119,9 @@ class QuizModel {
     ),
   ];
 
+  @override
   List<QuizQuestion> getQuestionBank() => _questionBank;
 
+  @override
   QuizQuestion getQuestion(int index) => _questionBank[index];
 }
