@@ -86,5 +86,23 @@ class QuizModelAnatomy extends QuizModelInterface {
       answer: QuizChoice.Choice4,
       explanation: 'The left ventricle pumps oxygenated blood to the body.',
     ),
+    QuizQuestion(
+      questionText: 'The hyoid bone is located...',
+      choice1: 'in the fingers',
+      choice2: 'in the toes',
+      choice3: 'in the inner ear',
+      choice4: 'in the neck',
+      answer: QuizChoice.Choice4,
+      explanation: 'The hyoid bone is located in the neck.',
+    ),
+    QuizQuestion(
+      questionText: 'How many bones are in the human body?',
+      choice1: '206',
+      choice2: '216',
+      choice3: '226',
+      choice4: '236',
+      answer: QuizChoice.Choice1,
+      explanation: 'There are 206 bones in the human body.',
+    ),
   ];
 }
