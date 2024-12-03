@@ -56,6 +56,7 @@ class ResultsPage extends StatelessWidget {
             MyCard(
               child: MyButton(
                 onPress: () {
+                  quizService.reset();
                   Navigator.pop(context);
                 },
                 text: 'Go back',

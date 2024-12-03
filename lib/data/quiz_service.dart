@@ -71,17 +71,19 @@ class QuizService {
 
   bool nextQuestion() {
     _questionIndex++;
-    if (_questionIndex == 0) {
-      _correctAnswers = 0;
-    }
-    else if (_questionIndex >= _questionOrder.length) {
+    if (_questionIndex >= _questionOrder.length) {
       _questionIndex = 0;
-      shuffleOrder();
-      getQuestion();
       return true;
     }
     getQuestion();
     return false;
+  }
+
+  void reset() {
+    _questionIndex = 0;
+    _correctAnswers = 0;
+    shuffleOrder();
+    getQuestion();
   }
 
   int getTotalQuestions() {
