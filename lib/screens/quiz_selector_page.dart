@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_quiz_app/components/my_button.dart';
 import 'package:flutter_quiz_app/components/my_card.dart';
@@ -16,7 +15,7 @@ class QuizSelectorPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Quiz Selector'),
+        title: const Text('Quiz Selector'),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
