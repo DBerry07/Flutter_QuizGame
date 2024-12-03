@@ -1,16 +1,16 @@
 # flutter_quiz_app
+## By David Berry
 
-A new Flutter project.
+Written in Dart and using the Flutter framework, this app is a quiz app.
 
-## Getting Started
+The control flow is:
+- User selects which quiz to do
+- User answers each question as it comes up from a list of multiple choices
+- After each answer select, a popup dialouge show giving some information about the question topic
+- At the end of the quiz, the user is presented with the number of questions they answered correctly
+- The user can then restart the quiz or return to the initial screen to select another quiz
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Features:
+- The order of appearance of the questions is randomized each time the user starts a new quiz.
+- The user can return to the initial screen (the quiz selection screen) by clicking the home icon in the app bar.
+- Each question has multiple choices, ranging from 1 choice to 4 choices.
