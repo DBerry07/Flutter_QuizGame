@@ -5,6 +5,7 @@ class BasicQuizModel extends QuizModelInterface{
 
   //TODO: maybe make a quiz model that is random questions from other quiz banks?
   //TODO: maybe make a quiz model that is all questions from all other quiz banks?
+  //TODO: move question banks from Firebase database
 
   final List<QuizQuestion> _questionBank = [
     QuizQuestion(
