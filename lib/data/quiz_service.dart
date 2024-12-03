@@ -26,8 +26,6 @@ class QuizService {
     _questionOrder.shuffle(Random());
   }
 
-  //TODO: maybe make question selection random?
-
   void getQuestion() {
     _questionNumber = _questionOrder[_questionIndex];
     print('_question number: $_questionNumber');
