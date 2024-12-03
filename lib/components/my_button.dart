@@ -29,9 +29,6 @@ class MyButton extends StatelessWidget {
         ),
         onPressed: onPress != null
             ? () {
-          if (kDebugMode) {
-            print('BUTTON PRESSED');
-          }
           onPress!();
         }
             : () {
