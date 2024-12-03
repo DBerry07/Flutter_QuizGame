@@ -35,8 +35,8 @@ class _HomepageState extends State<Homepage> {
     String? explanation = quizService.getQuestionExplanation();
 
     if (kDebugMode) {
-      print('showing dialog');
-      print(explanation);
+      // print('showing dialog');
+      // print(explanation);
     }
 
     alertDialog(result: result, explanation: quizService.getQuestionExplanation());

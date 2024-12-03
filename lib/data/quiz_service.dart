@@ -7,7 +7,6 @@ import 'package:flutter_quiz_app/data/quiz_question.dart';
 class QuizService {
 
   final QuizModelInterface quizModel;
-  int _questionNumber = 0;
   int _questionIndex = 0;
   int correctAnswers = 0;
   List<int> _questionOrder = [];
@@ -27,9 +26,9 @@ class QuizService {
   }
 
   void getQuestion() {
-    _questionNumber = _questionOrder[_questionIndex];
-    print('_question number: $_questionNumber');
-    question = quizModel.getQuestion(_questionNumber);
+    int index = _questionOrder[_questionIndex];
+    print('index number: $index');
+    question = quizModel.getQuestion(index);
   }
 
   int getQuestionOrderIndex() {
@@ -38,11 +37,6 @@ class QuizService {
 
   String getQuestionText() {
     return question?.questionText ?? 'null question text';
-  }
-
-  int getQuestionNumber() {
-    if (_questionNumber == 0) correctAnswers = 0;
-    return _questionNumber;
   }
 
   String? getChoice1() {
@@ -79,7 +73,10 @@ class QuizService {
 
   bool nextQuestion() {
     _questionIndex++;
-    if (_questionIndex >= _questionOrder.length) {
+    if (_questionIndex == 0) {
+      correctAnswers = 0;
+    }
+    else if (_questionIndex >= _questionOrder.length) {
       _questionIndex = 0;
       shuffleOrder();
       getQuestion();
