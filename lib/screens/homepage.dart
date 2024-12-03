@@ -93,7 +93,7 @@ class _HomepageState extends State<Homepage> {
         children: [
           MyCard(
             child: Text(
-              'QUESTION ${quizService.getQuestionNumber() + 1}',
+              'QUESTION ${quizService.getQuestionOrderIndex() + 1}',
               style: kQuestionTextStyle,
             ),
           ),
