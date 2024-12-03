@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_quiz_app/components/my_button.dart';
-import 'package:flutter_quiz_app/data/quiz_model_basic.dart';
+import 'package:flutter_quiz_app/quizzes/quiz_model_basic.dart';
 import 'package:flutter_quiz_app/screens/homepage.dart';
 
 class QuizSelectorPage extends StatelessWidget {

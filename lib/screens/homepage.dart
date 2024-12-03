@@ -2,7 +2,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_quiz_app/constants.dart';
 import 'package:flutter_quiz_app/data/quiz_interface.dart';
-import 'package:flutter_quiz_app/data/quiz_model_basic.dart';
 import 'package:flutter_quiz_app/data/quiz_question.dart';
 import 'package:flutter_quiz_app/data/quiz_service.dart';
 import 'package:flutter_quiz_app/screens/results_page.dart';
