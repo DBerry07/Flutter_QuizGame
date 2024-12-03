@@ -10,6 +10,8 @@ class QuizService {
 
   QuizService({required QuizModelInterface quizModel}) : _quizModel = quizModel;
 
+  //TODO: maybe make question selection random?
+
   String getQuestionText() {
     return _quizModel.getQuestionBank()[_questionNumber].questionText;
   }
