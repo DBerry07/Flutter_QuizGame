@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_quiz_app/components/my_button.dart';
 import 'package:flutter_quiz_app/components/my_card.dart';
 import 'package:flutter_quiz_app/constants.dart';
+import 'package:flutter_quiz_app/quizzes/loading_screen.dart';
+import 'package:flutter_quiz_app/quizzes/quiz_model.dart';
 import 'package:flutter_quiz_app/quizzes/quiz_model_anatomy.dart';
 import 'package:flutter_quiz_app/quizzes/quiz_model_basic.dart';
 import 'package:flutter_quiz_app/screens/homepage.dart';
@@ -49,9 +51,7 @@ class QuizSelectorPage extends StatelessWidget {
                         context,
                         MaterialPageRoute(
                           builder: (context) {
-                            return Homepage(
-                              quizModel: QuizModelAnatomy(),
-                            );
+                            return LoadingScreen(filepath: 'assets/anatomy.json');
                           },
                         ),
                       );

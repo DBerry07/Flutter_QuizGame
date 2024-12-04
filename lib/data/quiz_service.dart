@@ -3,6 +3,7 @@ import 'dart:math';
 
 import 'package:flutter_quiz_app/data/quiz_interface.dart';
 import 'package:flutter_quiz_app/data/quiz_question.dart';
+import 'package:flutter_quiz_app/quizzes/quiz_model.dart';
 
 class QuizService {
   QuizService({required QuizModelInterface quizModel}) : _quizModel = quizModel {

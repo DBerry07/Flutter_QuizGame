@@ -8,6 +8,7 @@ import 'package:flutter_quiz_app/screens/results_page.dart';
 
 import '../components/my_button.dart';
 import '../components/my_card.dart';
+import '../quizzes/quiz_model.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({super.key, required this.quizModel});

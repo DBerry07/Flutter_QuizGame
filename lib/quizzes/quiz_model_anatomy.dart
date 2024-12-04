@@ -1,7 +1,10 @@
+import 'package:flutter_quiz_app/data/json_file_reader.dart';
 import 'package:flutter_quiz_app/data/quiz_interface.dart';
 import 'package:flutter_quiz_app/data/quiz_question.dart';
+import 'package:flutter_quiz_app/quizzes/quiz_model.dart';
 
 class QuizModelAnatomy extends QuizModelInterface {
+
   @override
   QuizQuestion getQuestion(int index) => _questionBank[index];
 
