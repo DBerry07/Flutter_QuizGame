@@ -11,26 +11,50 @@ class InfoScreen extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(title: Text('App Info')),
         body: Center(
-          child: SizedBox(
-            height: 200,
-            width: 400,
-            child: MyCard(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Text(
-                    'This app was made by',
-                    style: kQuestionTextStyle.copyWith(fontWeight: FontWeight.normal),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              MyCard(
+                child: Padding(
+                  padding: const EdgeInsets.all(30.0),
+                  child: Column(
+                    children: [
+                      Text(
+                        'This app was made by',
+                        style: kQuestionTextStyle.copyWith(
+                            fontWeight: FontWeight.normal),
+                      ),
+                      const Text('David WJ Berry', style: kAnswerButtonText),
+                      Text(
+                        '2024',
+                        style: kQuestionTextStyle.copyWith(
+                            fontWeight: FontWeight.normal),
+                      ),
+                    ],
                   ),
-                  const Text('David WJ Berry', style: kAnswerButtonText),
-                  Text(
-                    '2024',
-                    style: kQuestionTextStyle.copyWith(fontWeight: FontWeight.normal),
-                  ),
-                ],
+                ),
               ),
-            ),
+              MyCard(
+                child: Padding(
+                  padding: const EdgeInsets.all(18.0),
+                  child: Column(
+                    children: [
+                      Text(
+                        'https://github.com/DBerry07',
+                        style: kQuestionTextStyle.copyWith(
+                            fontWeight: FontWeight.normal, fontSize: 16),
+                      ),
+                      Text(
+                        'https://dberry07.github.io',
+                        style: kQuestionTextStyle.copyWith(
+                            fontWeight: FontWeight.normal, fontSize: 16),
+                      )
+                    ],
+                  ),
+                ),
+              )
+            ],
           ),
         ));
   }
