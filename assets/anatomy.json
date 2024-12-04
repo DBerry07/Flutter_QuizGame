@@ -93,9 +93,9 @@
     "number": 10,
     "questionText": "How many bones are in the human body?",
     "choice1": "206",
-    "choice2": "216",
-    "choice3": "226",
-    "choice4": "236",
+    "choice2": "312",
+    "choice3": "255",
+    "choice4": "224",
     "answer": 1,
     "explanation": "There are 206 bones in the human body."
   }
