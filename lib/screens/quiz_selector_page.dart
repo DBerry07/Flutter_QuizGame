@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_quiz_app/components/my_button.dart';
 import 'package:flutter_quiz_app/components/my_card.dart';
 import 'package:flutter_quiz_app/constants.dart';
+import 'package:flutter_quiz_app/screens/info_screen.dart';
 import 'package:flutter_quiz_app/screens/loading_screen.dart';
 
 class QuizSelectorPage extends StatelessWidget {
@@ -69,6 +70,18 @@ class QuizSelectorPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Quiz Selector'),
+        leading: IconButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return InfoScreen();
+                  },
+                ),
+              );
+            },
+            icon: Icon(Icons.info)),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
