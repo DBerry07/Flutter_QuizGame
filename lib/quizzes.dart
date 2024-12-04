@@ -5,4 +5,5 @@ const Map<String, String> quizzes = {
   'General': 'assets/general.json',
   'Anatomy': 'assets/anatomy.json',
   'Tester': 'assets/test.json',
+  'Error': 'purposely/does/not/exist',
 };
