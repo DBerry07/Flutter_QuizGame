@@ -17,7 +17,6 @@ class QuizSelectorPage extends StatelessWidget {
     int i = 1;
 
     for (String key in quizzes.keys) {
-
       Color buttonColour = kChoice1Colour;
 
       if (i % 4 == 0) {
@@ -30,9 +29,9 @@ class QuizSelectorPage extends StatelessWidget {
         buttonColour = kChoice1Colour;
       }
 
-
       rowContent.add(
         MyButton(
+          colour: buttonColour,
           onPress: () {
             Navigator.push(
               context,
@@ -43,13 +42,13 @@ class QuizSelectorPage extends StatelessWidget {
               ),
             );
           },
-          text: key,
-          colour: buttonColour,
+          child:
+              Text(key, style: kAnswerButtonText.copyWith(color: buttonColour)),
         ),
       );
       i++;
 
-      if ((i -1) % 2 == 0) {
+      if ((i - 1) % 2 == 0) {
         buttons.add(
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,

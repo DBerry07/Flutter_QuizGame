@@ -4,6 +4,8 @@ import 'package:flutter_quiz_app/components/my_button.dart';
 import 'package:flutter_quiz_app/quizzes/quiz_model.dart';
 import 'package:flutter_quiz_app/screens/homepage.dart';
 
+import '../constants.dart';
+
 class LoadingScreen extends StatefulWidget {
   const LoadingScreen({super.key, required this.filepath});
 
@@ -14,7 +16,6 @@ class LoadingScreen extends StatefulWidget {
 }
 
 class _LoadingScreenState extends State<LoadingScreen> {
-
   late QuizModel quizModel;
 
   @override
@@ -23,22 +24,26 @@ class _LoadingScreenState extends State<LoadingScreen> {
     quizModel = QuizModel(filepath: widget.filepath);
   }
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Loading Screen'),
-      ),
-        body:
-        Center(
-          child: MyButton(text: 'Proceed', onPress: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context) {
-              return Homepage(quizModel: quizModel);
-            },),);
-          },),
-        )
-    );
+        appBar: AppBar(
+          title: Text('Loading Screen'),
+        ),
+        body: Center(
+          child: MyButton(
+            child: const Text('Proceed', style: kAnswerButtonText),
+            onPress: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return Homepage(quizModel: quizModel);
+                  },
+                ),
+              );
+            },
+          ),
+        ));
   }
 }
-

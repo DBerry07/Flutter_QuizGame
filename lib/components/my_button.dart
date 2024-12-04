@@ -4,10 +4,10 @@ import 'package:flutter/material.dart';
 import '../constants.dart';
 
 class MyButton extends StatelessWidget {
-  const MyButton({super.key, this.onPress, required this.text, this.colour});
+  const MyButton({super.key, this.onPress, this.child, this.colour});
 
   final Function? onPress;
-  final String text;
+  final Widget? child;
   final Color? colour;
 
   @override
@@ -38,12 +38,9 @@ class MyButton extends StatelessWidget {
         },
         child: Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Text(
-            text,
-            style: kAnswerButtonText.copyWith(color: colour),
+          child: child,
           ),
         ),
-      ),
     );
   }
 }

@@ -40,8 +40,8 @@ class ResultsPage extends StatelessWidget {
                         const Text('You got...', style: kAnswerButtonText),
                         Text(
                           '${quizService.getNumberOfCorrectAnswers().toString()} out of ${quizService.getTotalQuestions()}',
-                          style:
-                              kQuestionTextStyle.copyWith(color: Colors.amber, fontSize: 40),
+                          style: kQuestionTextStyle.copyWith(
+                              color: Colors.amber, fontSize: 40),
                         ),
                         const Text(
                           '...correct!',
@@ -54,16 +54,15 @@ class ResultsPage extends StatelessWidget {
               ),
             ),
             MyCard(
-              child: MyButton(
-                onPress: () {
-                  quizService.reset();
-                  Navigator.pop(context);
-                  Navigator.pop(context);
-                  Navigator.pop(context);
-                },
-                text: 'Go back',
-                )
-              ),
+                child: MyButton(
+              onPress: () {
+                quizService.reset();
+                Navigator.pop(context);
+                Navigator.pop(context);
+                Navigator.pop(context);
+              },
+              child: const Text('Go back', style: kAnswerButtonText),
+            )),
           ],
         ),
       ),
