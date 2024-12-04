@@ -37,25 +37,32 @@ class _HomepageState extends State<Homepage> {
 
   void alertDialog({bool result = false, String? explanation}) {
     showDialog(
-        context: context,
-        builder: (context) {
-          return AlertDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
             title: result
                 ? const Text(
-                    'Correct!',
-                    style: kCorrectText,
-                  )
+              'Correct!',
+              style: kCorrectText,
+            )
                 : const Text(
-                    'Incorrect',
-                    style: kIncorrectText,
-                  ),
+              'Incorrect',
+              style: kIncorrectText,
+            ),
             content: Text(
               explanation ?? '',
               style: kPopupContent,
             ),
-          );
-        }).whenComplete(
-      () {
+            actions: [
+            IconButton(onPressed: ()
+        {
+          Navigator.pop(context);
+        }, icon: const Icon(Icons.close, color: Colors.red),),
+        ]
+        ,
+        );
+      },).whenComplete(
+          () {
         setState(() {
           bool result = quizService.nextQuestion();
           if (result) {
@@ -97,49 +104,49 @@ class _HomepageState extends State<Homepage> {
           ),
           Expanded(
               child: MyCard(
-            child: Text(
-              quizService.getQuestionText(),
-              style: kQuestionTextStyle,
-            ),
-          )),
+                child: Text(
+                  quizService.getQuestionText(),
+                  style: kQuestionTextStyle,
+                ),
+              )),
           quizService.getChoice1() != null
               ? MyButton(
             colour: kChoice1Colour,
-                  child: Text(quizService.getChoice1()!,
-                      style: kAnswerButtonText.copyWith(color: kChoice1Colour)),
-                  onPress: () {
-                    checkAnswer(QuizChoice.Choice1);
-                  },
-                )
+            child: Text(quizService.getChoice1()!,
+                style: kAnswerButtonText.copyWith(color: kChoice1Colour)),
+            onPress: () {
+              checkAnswer(QuizChoice.Choice1);
+            },
+          )
               : Container(),
           quizService.getChoice2() != null
               ? MyButton(
             colour: kChoice2Colour,
-                  child: Text(quizService.getChoice2()!,
-                      style: kAnswerButtonText.copyWith(color: kChoice2Colour)),
-                  onPress: () {
-                    checkAnswer(QuizChoice.Choice2);
-                  },
-                )
+            child: Text(quizService.getChoice2()!,
+                style: kAnswerButtonText.copyWith(color: kChoice2Colour)),
+            onPress: () {
+              checkAnswer(QuizChoice.Choice2);
+            },
+          )
               : Container(),
           quizService.getChoice3() != null
               ? MyButton(
             colour: kChoice3Colour,
-                  child: Text(quizService.getChoice3()!,
-                      style: kAnswerButtonText.copyWith(color: kChoice3Colour)),
-                  onPress: () {
-                    checkAnswer(QuizChoice.Choice3);
-                  },
-                )
+            child: Text(quizService.getChoice3()!,
+                style: kAnswerButtonText.copyWith(color: kChoice3Colour)),
+            onPress: () {
+              checkAnswer(QuizChoice.Choice3);
+            },
+          )
               : Container(),
           quizService.getChoice4() != null
               ? MyButton(
-                  colour: kChoice4Colour,
-                  onPress: () {
-                    checkAnswer(QuizChoice.Choice4);
-                  },
-                  child: Text(quizService.getChoice4()!,
-                      style: kAnswerButtonText.copyWith(color: kChoice4Colour)),           )
+            colour: kChoice4Colour,
+            onPress: () {
+              checkAnswer(QuizChoice.Choice4);
+            },
+            child: Text(quizService.getChoice4()!,
+                style: kAnswerButtonText.copyWith(color: kChoice4Colour)),)
               : Container(),
         ],
       ),
