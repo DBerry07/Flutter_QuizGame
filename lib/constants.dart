@@ -49,10 +49,3 @@ const kAppBarBackgroundColour = Colors.amber;
 
 const double kButtonBorderWidth = 5;
 const kButtonBorderRadius = 30.0;
-
-const Map<String, String> quizzes = {
-  'General Quiz': 'assets/general.json',
-  'Anatomy Quiz': 'assets/anatomy.json',
-  'Test Quiz': 'assets/test.json',
-  // 'Test2 Quiz': 'blah',
-};

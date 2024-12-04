@@ -5,6 +5,8 @@ import 'package:flutter_quiz_app/constants.dart';
 import 'package:flutter_quiz_app/screens/info_screen.dart';
 import 'package:flutter_quiz_app/screens/loading_screen.dart';
 
+import '../quizzes.dart';
+
 class QuizSelectorPage extends StatelessWidget {
   const QuizSelectorPage({super.key});
 
