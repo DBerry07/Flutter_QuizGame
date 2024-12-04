@@ -26,13 +26,13 @@ class QuizModel implements QuizModelInterface{
 
     for (int i = 0; i < awaitedDecode.length; i++) {
       var item = awaitedDecode[i];
-      QuizQuestion question = QuizQuestion(questionText: item['q'] as String,
-          choice1: item['c1'] as String,
-          choice2: item['c2'] as String,
-          choice3: item['c3'] as String,
-          choice4: item['c4'] as String,
-          answer: QuizChoice.values[(item['a'] as int) - 1],
-          explanation: item['e'] as String);
+      QuizQuestion question = QuizQuestion(questionText: item['questionText'] as String,
+          choice1: item['choice1'] as String,
+          choice2: item['choice2'] as String,
+          choice3: item['choice3'] as String,
+          choice4: item['choice4'] as String,
+          answer: QuizChoice.values[(item['answer'] as int) - 1],
+          explanation: item['explanation'] as String);
       bank.add(question);
     }
     return bank;
