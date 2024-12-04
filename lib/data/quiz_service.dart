@@ -6,7 +6,7 @@ import 'package:flutter_quiz_app/data/quiz_question.dart';
 
 class QuizService {
   QuizService({required QuizModelInterface quizModel}) : _quizModel = quizModel {
-    for (int i = 0; i < _quizModel.getQuestionBank().length; i++) {
+    for (int i = 0; i < _quizModel.questionBank.length; i++) {
       _questionOrder.add(i);
     }
     shuffleOrder();
@@ -39,9 +39,21 @@ class QuizService {
   }
 
   void getQuestion() {
-    int index = _questionOrder[_questionIndex];
+    int index = 0;
+    try {
+      index = _questionOrder[_questionIndex];
+    } catch (e) {
+      print(e);
+      _question = QuizQuestion(questionText: 'Error getting question.', choice1: 'Proceed', answer: QuizChoice.Choice1, number: -1);
+      return;
+    }
     print('index number: $index');
-    _question = _quizModel.getQuestion(index);
+    try {
+      _question = _quizModel.getQuestion(index);
+    } catch (e) {
+      print(e);
+      _question = QuizQuestion(questionText: 'Error getting question.', choice1: 'Proceed', answer: QuizChoice.Choice1, number: -1);
+    }
   }
 
   int getQuestionOrderIndex() {
@@ -102,7 +114,13 @@ class QuizService {
   }
 
   int getTotalQuestions() {
-    return _quizModel.getQuestionBank().length;
+    int length = 0;
+    try {
+      length = _quizModel.questionBank.length;
+    } catch(e) {
+      print(e);
+    }
+    return length;
   }
 
   String? getQuestionExplanation() {
