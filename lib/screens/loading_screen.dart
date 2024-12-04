@@ -28,11 +28,14 @@ class _LoadingScreenState extends State<LoadingScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('Loading Screen'),
+          title: const Text('Loading Screen'),
         ),
         body: Center(
           child: MyButton(
-            child: const Text('Proceed', style: kAnswerButtonText),
+            child: const Padding(
+              padding: EdgeInsets.all(25.0),
+              child: Text('Proceed', style: kAnswerButtonText),
+            ),
             onPress: () {
               Navigator.push(
                 context,
