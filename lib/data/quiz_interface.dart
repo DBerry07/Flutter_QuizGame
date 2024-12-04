@@ -3,7 +3,7 @@ import 'package:flutter_quiz_app/data/quiz_question.dart';
 
 abstract class QuizModelInterface {
 
-  List<QuizQuestion> getQuestionBank();
+  get questionBank;
   QuizQuestion getQuestion(int index);
 
 }
