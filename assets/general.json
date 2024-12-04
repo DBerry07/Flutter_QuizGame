@@ -1,0 +1,13 @@
+[
+  {
+    "number": 1,
+    "questionText": "What is the capital of Australia?",
+    "choice1": "Sydney",
+    "choice2": "Melbourne",
+    "choice3": "Canberra",
+    "choice4": "Tasmania",
+    "answer": 3,
+    "explanation":
+    "The capital of Australia is Canberra.\n\nSydney and Melbourne are its two largest cities.\n\nTasmania is an island off Australia's coast."
+  }
+]
