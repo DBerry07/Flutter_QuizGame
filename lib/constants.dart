@@ -53,6 +53,6 @@ const kButtonBorderRadius = 30.0;
 const Map<String, String> quizzes = {
   'General Quiz': 'assets/general.json',
   'Anatomy Quiz': 'assets/anatomy.json',
-  // 'Test Quiz': 'blah',
+  'Test Quiz': 'assets/test.json',
   // 'Test2 Quiz': 'blah',
 };

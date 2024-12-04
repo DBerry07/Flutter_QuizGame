@@ -11,16 +11,6 @@
     "The capital of Australia is Canberra.\n\nSydney and Melbourne are its two largest cities.\n\nTasmania is an island off Australia's coast."
   },
   {
-    "number": 2,
-    "questionText": "This question does not have an explanation.",
-    "choice1": "Continue",
-    "choice2": null,
-    "choice3": null,
-    "choice4": null,
-    "answer": 1,
-    "explanation": null
-  },
-  {
     "number": 3,
     "questionText": "What is the largest internal organ inside the human body?",
     "choice1": "Brain",
