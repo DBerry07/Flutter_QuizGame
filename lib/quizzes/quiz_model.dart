@@ -8,6 +8,9 @@ class QuizModel implements QuizModelInterface{
     makeQuestionBank();
   }
 
+  //TODO: integrate database and user accounts.
+  //TODO: allow users to create custom quizzes.
+
   String filepath;
   List<QuizQuestion> _questionBank = [];
 
