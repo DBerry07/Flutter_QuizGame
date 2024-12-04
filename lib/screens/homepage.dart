@@ -32,7 +32,7 @@ class _HomepageState extends State<Homepage> {
     }
 
     alertDialog(
-        result: result, explanation: quizService.getQuestionExplanation());
+        result: result, explanation: (quizService.question as QuizQuestion).questionExplanation);
   }
 
   void alertDialog({bool result = false, String? explanation}) {
@@ -98,54 +98,54 @@ class _HomepageState extends State<Homepage> {
         children: [
           MyCard(
             child: Text(
-              'QUESTION ${quizService.getQuestionOrderIndex() + 1}',
+              'QUESTION ${quizService.questionIndex + 1}',
               style: kQuestionTextStyle,
             ),
           ),
           Expanded(
               child: MyCard(
                 child: Text(
-                  quizService.getQuestionText(),
+                  (quizService.question as QuizQuestion).questionText,
                   style: kQuestionTextStyle,
                 ),
               )),
-          quizService.getChoice1() != null
+          (quizService.question as QuizQuestion).choice1 != null
               ? MyButton(
             colour: kChoice1Colour,
-            child: Text(quizService.getChoice1()!,
+            child: Text((quizService.question as QuizQuestion).choice1,
                 style: kAnswerButtonText.copyWith(color: kChoice1Colour)),
             onPress: () {
               checkAnswer(QuizChoice.Choice1);
             },
           )
               : Container(),
-          quizService.getChoice2() != null
+          (quizService.question as QuizQuestion).choice2 != null
               ? MyButton(
             colour: kChoice2Colour,
-            child: Text(quizService.getChoice2()!,
+            child: Text((quizService.question as QuizQuestion).choice2,
                 style: kAnswerButtonText.copyWith(color: kChoice2Colour)),
             onPress: () {
               checkAnswer(QuizChoice.Choice2);
             },
           )
               : Container(),
-          quizService.getChoice3() != null
+          (quizService.question as QuizQuestion).choice3 != null
               ? MyButton(
             colour: kChoice3Colour,
-            child: Text(quizService.getChoice3()!,
+            child: Text((quizService.question as QuizQuestion).choice3!,
                 style: kAnswerButtonText.copyWith(color: kChoice3Colour)),
             onPress: () {
               checkAnswer(QuizChoice.Choice3);
             },
           )
               : Container(),
-          quizService.getChoice4() != null
+          (quizService.question as QuizQuestion).choice4 != null
               ? MyButton(
             colour: kChoice4Colour,
             onPress: () {
               checkAnswer(QuizChoice.Choice4);
             },
-            child: Text(quizService.getChoice4()!,
+            child: Text((quizService.question as QuizQuestion).choice4!,
                 style: kAnswerButtonText.copyWith(color: kChoice4Colour)),)
               : Container(),
         ],
