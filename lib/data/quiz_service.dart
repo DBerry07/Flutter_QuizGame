@@ -1,7 +1,6 @@
 
 import 'dart:math';
 
-import 'package:flutter/material.dart';
 import 'package:flutter_quiz_app/data/quiz_interface.dart';
 import 'package:flutter_quiz_app/data/quiz_question.dart';
 
@@ -29,16 +28,26 @@ class QuizService {
     return _quizModel.getQuestion(index);
   }
 
-  get questionIndex {
+  int get questionIndex {
     return _questionIndex;
   }
 
-  get correctAnswerCount {
+  int get correctAnswerCount {
     return _correctAnswers;
   }
 
-  get maxQuestions {
+  int get maxQuestions {
     return _maxQuestions;
+  }
+
+  int get totalQuestions {
+    int length = 0;
+    try {
+      length = _quizModel.questionBank.length;
+    } catch(e) {
+      print(e);
+    }
+    return length;
   }
 
   void shuffleOrder() {
@@ -76,16 +85,6 @@ class QuizService {
     _questionIndex = 0;
     _correctAnswers = 0;
     shuffleOrder();
-  }
-
-  int getTotalQuestions() {
-    int length = 0;
-    try {
-      length = _quizModel.questionBank.length;
-    } catch(e) {
-      print(e);
-    }
-    return length;
   }
 
 }

@@ -42,30 +42,30 @@ class QuizQuestion {
     return stringBuffer.toString();
   }
 
-  get choice1 {
+  String? get choice1 {
     try {
-      return this._choices[QuizChoice.Choice1]!;
+      return _choices[QuizChoice.Choice1];
     } catch (e) {
       print(e);
       return 'ERROR';
     }
   }
 
-  get choice2 {
+  String? get choice2 {
     return _choices[QuizChoice.Choice2];
   }
 
-  get choice3 {
+  String? get choice3 {
     return _choices[QuizChoice.Choice3];
   }
 
-  get choice4 {
+  String? get choice4 {
     return _choices[QuizChoice.Choice4];
   }
 
-  get questionExplanation {
+  String get questionExplanation {
     try {
-      return this.explanation;
+      return this.explanation!;
     } catch (e) {
       return 'ERROR';
     }
