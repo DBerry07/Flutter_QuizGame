@@ -40,7 +40,7 @@
     "explanation": "Test"
   },
   {
-    "number": 4,
+    "number": 5,
     "questionText": "This is a test question. It has four options.",
     "choice1": "Proceed1",
     "choice2": "Proceed2",
