@@ -17,11 +17,26 @@ class QuizService {
   final QuizModelInterface _quizModel;
   int _questionIndex = 0;
   int _correctAnswers = 0;
-  final List<int> _questionOrder = [];
+  int _maxQuestions = 1;
+  List<int> _questionOrder = [];
   QuizQuestion? _question;
 
   void shuffleOrder() {
     _questionOrder.shuffle(Random());
+    selectOnlyFirstTenQuestions();
+  }
+
+  void selectOnlyFirstTenQuestions() {
+    _maxQuestions = 10;
+    if (_questionOrder.length < 10) {
+      _maxQuestions = _questionOrder.length;
+    }
+
+    _questionOrder = _questionOrder.sublist(0, _maxQuestions);
+  }
+
+  int getMaxQuestions() {
+    return _maxQuestions;
   }
 
   void getQuestion() {
