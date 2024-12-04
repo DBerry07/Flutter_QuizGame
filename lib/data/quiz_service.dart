@@ -18,14 +18,15 @@ class QuizService {
   int _maxQuestions = 1;
   List<int> _questionOrder = [];
 
-  QuizQuestion get question {
+  QuizQuestion? get question {
     int index = 0;
     try {
       index = _questionOrder[_questionIndex];
+      return _quizModel.getQuestion(index);
     } catch (e) {
       print(e);
     }
-    return _quizModel.getQuestion(index);
+    return null;
   }
 
   int get questionIndex {
@@ -65,7 +66,7 @@ class QuizService {
   }
 
   bool checkPlayerAnswer(QuizChoice playerChoice) {
-    bool result = playerChoice == question.answer;
+    bool result = playerChoice == question?.answer;
     print(question);
     result ? _correctAnswers++ : null;
     print('number of correct answers: $_correctAnswers');

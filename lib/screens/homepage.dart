@@ -32,7 +32,7 @@ class _HomepageState extends State<Homepage> {
     }
 
     alertDialog(
-        result: result, explanation: quizService.question.questionExplanation);
+        result: result, explanation: quizService.question!.questionExplanation);
   }
 
   void alertDialog({bool result = false, String? explanation}) {
@@ -82,6 +82,35 @@ class _HomepageState extends State<Homepage> {
 
   @override
   Widget build(BuildContext context) {
+    if (quizService.question == null) {
+      return Scaffold(
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              MyCard(child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text('ERROR:\nThe app encountered an error.', style: kQuestionTextStyle.copyWith(color: Colors.red),),
+              )),
+              MyCard(
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: MyButton(
+                    onPress: () {
+                      Navigator.pop(context);
+                      Navigator.pop(context);
+                    },
+                    child: Text('Click here to return', style: kQuestionTextStyle,),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      );
+    }
+
     return Scaffold(
       // backgroundColor: charcoalGrey,
       appBar: AppBar(
@@ -107,47 +136,47 @@ class _HomepageState extends State<Homepage> {
           Expanded(
               child: MyCard(
             child: Text(
-              quizService.question.questionText,
+              quizService.question!.questionText,
               style: kQuestionTextStyle,
             ),
           )),
-          quizService.question.choice1 != null
+          quizService.question!.choice1 != null
               ? MyButton(
                   colour: kChoice1Colour,
-                  child: Text(quizService.question.choice1!,
+                  child: Text(quizService.question!.choice1!,
                       style: kAnswerButtonText.copyWith(color: kChoice1Colour)),
                   onPress: () {
                     checkAnswer(QuizChoice.Choice1);
                   },
                 )
               : Container(),
-          quizService.question.choice2 != null
+          quizService.question!.choice2 != null
               ? MyButton(
                   colour: kChoice2Colour,
-                  child: Text(quizService.question.choice2!,
+                  child: Text(quizService.question!.choice2!,
                       style: kAnswerButtonText.copyWith(color: kChoice2Colour)),
                   onPress: () {
                     checkAnswer(QuizChoice.Choice2);
                   },
                 )
               : Container(),
-          quizService.question.choice3 != null
+          quizService.question?.choice3 != null
               ? MyButton(
                   colour: kChoice3Colour,
-                  child: Text(quizService.question.choice3!,
+                  child: Text(quizService.question!.choice3!,
                       style: kAnswerButtonText.copyWith(color: kChoice3Colour)),
                   onPress: () {
                     checkAnswer(QuizChoice.Choice3);
                   },
                 )
               : Container(),
-          quizService.question.choice4 != null
+          quizService.question?.choice4 != null
               ? MyButton(
                   colour: kChoice4Colour,
                   onPress: () {
                     checkAnswer(QuizChoice.Choice4);
                   },
-                  child: Text(quizService.question.choice4!,
+                  child: Text(quizService.question!.choice4!,
                       style: kAnswerButtonText.copyWith(color: kChoice4Colour)),
                 )
               : Container(),

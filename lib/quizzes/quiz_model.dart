@@ -44,13 +44,12 @@ class QuizModel implements QuizModelInterface{
   }
 
   @override
-  QuizQuestion getQuestion(int index) {
+  QuizQuestion? getQuestion(int index) {
     try {
       return _questionBank[index];
     } catch(e) {
       print(e);
     }
-    return QuizQuestion(number: -1, questionText: 'Empty question', choice1: 'continue', answer: QuizChoice.Choice1);
   }
 
 
