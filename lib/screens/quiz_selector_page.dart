@@ -33,7 +33,7 @@ class QuizSelectorPage extends StatelessWidget {
                         context,
                         MaterialPageRoute(
                           builder: (context) {
-                            return LoadingScreen(filepath: 'assets/general.json');
+                            return const LoadingScreen(filepath: 'assets/general.json');
                           },
                         ),
                       );
@@ -49,7 +49,7 @@ class QuizSelectorPage extends StatelessWidget {
                         context,
                         MaterialPageRoute(
                           builder: (context) {
-                            return LoadingScreen(filepath: 'assets/anatomy.json');
+                            return const LoadingScreen(filepath: 'assets/anatomy.json');
                           },
                         ),
                       );
