@@ -27,6 +27,9 @@ class _LoadingScreenState extends State<LoadingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('Loading Screen'),
+      ),
         body:
         Center(
           child: MyButton(text: 'Proceed', onPress: () {
