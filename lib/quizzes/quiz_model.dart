@@ -27,12 +27,13 @@ class QuizModel implements QuizModelInterface{
     for (int i = 0; i < awaitedDecode.length; i++) {
       var item = awaitedDecode[i];
       QuizQuestion question = QuizQuestion(questionText: item['questionText'] as String,
+          number: item['number'] as int,
           choice1: item['choice1'] as String,
-          choice2: item['choice2'] as String,
-          choice3: item['choice3'] as String,
-          choice4: item['choice4'] as String,
+          choice2: item['choice2'] as String?,
+          choice3: item['choice3'] as String?,
+          choice4: item['choice4'] as String?,
           answer: QuizChoice.values[(item['answer'] as int) - 1],
-          explanation: item['explanation'] as String);
+          explanation: item['explanation'] as String?);
       bank.add(question);
     }
     return bank;
@@ -45,7 +46,7 @@ class QuizModel implements QuizModelInterface{
     } catch(e) {
       print(e);
     }
-    return QuizQuestion(questionText: 'Empty question', choice1: 'continue', answer: QuizChoice.Choice1);
+    return QuizQuestion(number: -1, questionText: 'Empty question', choice1: 'continue', answer: QuizChoice.Choice1);
   }
 
 
