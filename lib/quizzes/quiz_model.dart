@@ -1,4 +1,5 @@
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter_quiz_app/data/json_file_reader.dart';
 import 'package:flutter_quiz_app/data/quiz_interface.dart';
 import 'package:flutter_quiz_app/data/quiz_question.dart';
@@ -14,7 +15,8 @@ class QuizModel implements QuizModelInterface{
   String filepath;
   List<QuizQuestion> _questionBank = [];
 
-  List<QuizQuestion> getQuestionBank() {
+  @override
+  get questionBank {
     return _questionBank;
   }
 
