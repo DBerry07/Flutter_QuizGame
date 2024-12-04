@@ -1,11 +1,29 @@
 [
   {
-    "q": "TEST Where is the smallest bone in the human body located?",
+    "q": "Where is the smallest bone in the human body located?",
     "c1": "Finger",
     "c2": "Toes",
     "c3": "Inner Ear",
     "c4": "Mouth",
     "a": 3,
     "e": "The smallest bone in the human body is the stapes, which is located in the inner ear."
+  },
+  {
+    "q": "What is the largest organ in the human body?",
+    "c1": "Liver",
+    "c2": "Skin",
+    "c3": "Stomach",
+    "c4": "Brain",
+    "a": 2,
+    "e": "The largest organ in the human body is the skin.\\n\\nHowever, the largest internal organ in the human body is the liver."
+  },
+  {
+    "q":"Where is the strongest muscle in the human body located?",
+    "c1": "Face",
+    "c2": "Arms",
+    "c3": "Legs",
+    "c4": "Hips",
+    "a": 1,
+    "e": "The strongest muscle in the human body is the 'masseter' - the jaw muscle."
   }
 ]
