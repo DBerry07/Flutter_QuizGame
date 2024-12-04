@@ -1,7 +1,7 @@
 [
   {
     "number": 1,
-    "questionText": "This is a test question. It has not explanation.",
+    "questionText": "This is a test question. It has no explanation.",
     "choice1": "Proceed",
     "choice2": null,
     "choice3": null,
