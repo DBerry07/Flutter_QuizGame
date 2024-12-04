@@ -58,6 +58,7 @@ class ResultsPage extends StatelessWidget {
                 onPress: () {
                   quizService.reset();
                   Navigator.pop(context);
+                  Navigator.pop(context);
                 },
                 text: 'Go back',
                 )
