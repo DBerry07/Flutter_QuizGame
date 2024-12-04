@@ -32,8 +32,8 @@ class _HomepageState extends State<Homepage> {
       print('isCorrect?: $result');
     }
 
-    alertDialog(result: result, explanation: quizService.getQuestionExplanation());
-
+    alertDialog(
+        result: result, explanation: quizService.getQuestionExplanation());
   }
 
   void alertDialog({bool result = false, String? explanation}) {
@@ -43,31 +43,32 @@ class _HomepageState extends State<Homepage> {
           return AlertDialog(
             title: result
                 ? const Text(
-              'Correct!',
-              style: kCorrectText,
-            )
+                    'Correct!',
+                    style: kCorrectText,
+                  )
                 : const Text(
-              'Incorrect',
-              style: kIncorrectText,
-            ),
+                    'Incorrect',
+                    style: kIncorrectText,
+                  ),
             content: Text(
               explanation ?? '',
               style: kPopupContent,
             ),
           );
-        }).whenComplete(() {
-      setState(() {
-        bool result = quizService.nextQuestion();
-        if (result) {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => ResultsPage(quizService),
-            ),
-          );
-        }
-      });
-    },
+        }).whenComplete(
+      () {
+        setState(() {
+          bool result = quizService.nextQuestion();
+          if (result) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => ResultsPage(quizService),
+              ),
+            );
+          }
+        });
+      },
     );
   }
 
@@ -77,7 +78,14 @@ class _HomepageState extends State<Homepage> {
       // backgroundColor: charcoalGrey,
       appBar: AppBar(
         // backgroundColor: kAppBarBackgroundColour,
-        title: const Text('Quiz App'),
+        title: const Text('QUIZ APP'),
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+            Navigator.pop(context);
+          },
+          icon: Icon(Icons.home),
+        ),
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
