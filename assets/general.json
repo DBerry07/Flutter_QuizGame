@@ -11,6 +11,16 @@
     "The capital of Australia is Canberra.\n\nSydney and Melbourne are its two largest cities.\n\nTasmania is an island off Australia's coast."
   },
   {
+    "number": 2,
+    "questionText" : "Which freezes faster: hot or cold water?",
+    "choice1": "hot water",
+    "choice2": "cold water",
+    "choice3": "both at the same rate",
+    "choice4": null,
+    "answer": 1,
+    "explanation": "Hot water freezes faster because of the Mpemba effect.\n\nAlthough the Mpemba effect was known to ancient peoples, it was not formally recognized by scientists until 1969.\n\nThe Mpemba effect is named after its modern discoverer - Erasto Mpemba."
+  },
+  {
     "number": 3,
     "questionText": "What is the largest internal organ inside the human body?",
     "choice1": "Brain",
