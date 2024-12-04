@@ -11,6 +11,62 @@ class QuizSelectorPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List<Widget> buttons = [];
+    List<Widget> rowContent = [];
+
+    int i = 1;
+
+    for (String key in quizzes.keys) {
+
+      Color buttonColour = kChoice1Colour;
+
+      if (i % 4 == 0) {
+        buttonColour = kChoice4Colour;
+      } else if (i % 3 == 0) {
+        buttonColour = kChoice3Colour;
+      } else if (i % 2 == 0) {
+        buttonColour = kChoice2Colour;
+      } else {
+        buttonColour = kChoice1Colour;
+      }
+
+
+      rowContent.add(
+        MyButton(
+          onPress: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) {
+                  return LoadingScreen(filepath: quizzes[key]!);
+                },
+              ),
+            );
+          },
+          text: key,
+          colour: buttonColour,
+        ),
+      );
+      i++;
+
+      if ((i -1) % 2 == 0) {
+        buttons.add(
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: rowContent,
+          ),
+        );
+        rowContent = [];
+      }
+    }
+
+    if (rowContent.isNotEmpty) {
+      buttons.add(Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: rowContent,
+      ));
+    }
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Quiz Selector'),
@@ -19,41 +75,17 @@ class QuizSelectorPage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          MyCard(child: Center(child: Text(heading, style: kQuestionTextStyle,))),
+          MyCard(
+              child: Center(
+                  child: Text(
+            heading,
+            style: kQuestionTextStyle,
+          ))),
           Expanded(
             child: MyCard(
-              child: Row(
+              child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  MyButton(
-                    onPress: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) {
-                            return const LoadingScreen(filepath: 'assets/general.json');
-                          },
-                        ),
-                      );
-                    },
-                    text: 'Basic Quiz',
-                    colour: Colors.blue,
-                  ),
-                  MyButton(
-                    text: 'Anatomy Quiz',
-                    colour: Colors.red,
-                    onPress: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) {
-                            return const LoadingScreen(filepath: 'assets/anatomy.json');
-                          },
-                        ),
-                      );
-                    },
-                  )
-                ],
+                children: buttons,
               ),
             ),
           ),
