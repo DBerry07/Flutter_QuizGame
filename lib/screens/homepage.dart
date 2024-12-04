@@ -84,7 +84,7 @@ class _HomepageState extends State<Homepage> {
       // backgroundColor: charcoalGrey,
       appBar: AppBar(
         // backgroundColor: kAppBarBackgroundColour,
-        title: const Text('QUIZ APP'),
+        title: const Text(kHomePageTitle),
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);

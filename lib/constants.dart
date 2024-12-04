@@ -49,3 +49,11 @@ const kAppBarBackgroundColour = Colors.amber;
 
 const double kButtonBorderWidth = 5;
 const kButtonBorderRadius = 30.0;
+
+const int kNumberOfButtonsPerRow = 3;
+
+const String kQuizSelectionPageTitle = 'Quiz Selector';
+const String kHomePageTitle = 'Quiz App';
+const String kLoadingPageTitle = 'Loading Page';
+const String kResultsPageTitle = 'Your Results';
+const String kInfoScreenTitle = 'App Info';

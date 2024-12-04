@@ -9,7 +9,7 @@ class InfoScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text('App Info')),
+        appBar: AppBar(title: const Text(kInfoScreenTitle)),
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,

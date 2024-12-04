@@ -15,7 +15,7 @@ class ResultsPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.amber,
-        title: const Text('RESULTS'),
+        title: const Text(kResultsPageTitle),
       ),
       body: Center(
         child: Column(

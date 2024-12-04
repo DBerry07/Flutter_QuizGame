@@ -51,7 +51,7 @@ class QuizSelectorPage extends StatelessWidget {
       );
       i++;
 
-      if ((i - 1) % 2 == 0) {
+      if ((i - 1) % kNumberOfButtonsPerRow == 0) {
         buttons.add(
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -71,7 +71,7 @@ class QuizSelectorPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Quiz Selector'),
+        title: const Text(kQuizSelectionPageTitle),
         leading: IconButton(
             onPressed: () {
               Navigator.push(
