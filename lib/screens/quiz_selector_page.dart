@@ -33,7 +33,7 @@ class QuizSelectorPage extends StatelessWidget {
                         context,
                         MaterialPageRoute(
                           builder: (context) {
-                            return Homepage(quizModel: BasicQuizModel());
+                            return LoadingScreen(filepath: 'assets/general.json');
                           },
                         ),
                       );
