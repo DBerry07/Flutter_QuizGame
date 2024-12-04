@@ -23,10 +23,10 @@
   {
     "number": 3,
     "questionText": "What is the largest internal organ inside the human body?",
-    "choice1": "Brain",
-    "choice2": "Liver",
-    "choice3": "Stomach",
-    "choice4": "Heart",
+    "choice1": "brain",
+    "choice2": "liver",
+    "choice3": "stomach",
+    "choice4": "heart",
     "answer": 2,
     "explanation": "The largest organ inside the human body is the liver."
   },
@@ -62,13 +62,13 @@
   },
   {
     "number": 7,
-    "questionText": "A group of owls is called a:",
-    "choice1": "flock",
-    "choice2": "court",
-    "choice3": "hamlet",
-    "choice4": "parliament",
+    "questionText": "A group of owls is called:",
+    "choice1": "a flock",
+    "choice2": "a court",
+    "choice3": "a hamlet",
+    "choice4": "a parliament",
     "answer": 4,
-    "explanation": "A group of owls is called a Parliament."
+    "explanation": "A group of owls is called a parliament."
   },
   {
     "number": 8,
@@ -84,10 +84,10 @@
   {
     "number": 9,
     "questionText": "What is the national animal of Scotland?",
-    "choice1": "lion",
-    "choice2": "ram",
-    "choice3": "unicorn",
-    "choice4": "wolverine",
+    "choice1": "the lion",
+    "choice2": "the ram",
+    "choice3": "the unicorn",
+    "choice4": "the wolverine",
     "answer": 3,
     "explanation": "The national animal of Scotland is the unicorn."
   },
@@ -110,7 +110,7 @@
     "choice3": null,
     "choice4": null,
     "answer": 2,
-    "explanation": "Back during the time when dinosaurs roamed the Earth, the moon had active volcanoes."
+    "explanation": "During the time when dinosaurs roamed the Earth, the moon had active volcanoes."
   },
   {
     "number": 12,
@@ -130,6 +130,36 @@
     "choice3": null,
     "choice4": null,
     "answer": 1,
-    "explanation": "This is true. Examples include coffee made from beans excreted by elephants and Asian palm civets."
+    "explanation": "Examples include coffee made from beans excreted by elephants and Asian palm civets."
+  },
+  {
+    "number": 14,
+    "questionText": "A group of flamingos is called:",
+    "choice1": "a flock",
+    "choice2": "a party",
+    "choice3": "a flamboyance",
+    "choice4": "a band",
+    "answer": 4,
+    "explanation": "A group of flamingos is called a flamboyance."
+  },
+  {
+    "number": 15,
+    "questionText": "What was the first mammal to be cloned?",
+    "choice1": "a sheep",
+    "choice2": "a dog",
+    "choice3": "a goat",
+    "choice4": "a cow",
+    "answer": 1,
+    "explanation": "The first mammal to be cloned was Dolly the sheep. She lived from 1996 to 2003.\n\nThe cloning experiment was conducted by Ian Wilmut and his colleagues at the Roslin Institute in Scotland."
+  },
+  {
+    "number": 16,
+    "questionText": "What year was Earth Day first celebrated?",
+    "choice1": "1962",
+    "choice2": "1972",
+    "choice3": "1970",
+    "choice4": "1981",
+    "answer": 3,
+    "explanation": "Earth Day was first celebrated in 1970."
   }
 ]
